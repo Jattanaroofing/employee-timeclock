@@ -16,7 +16,7 @@
 <script type="application/json" id="tc-config">
 {
   "supabase_url": "https://maluyhawbjmropvqzjqp.supabase.co",
-  "supabase_publishable_key": "sb_publishable_YgmmzUSO4AqRpIyBf-VYaQ__qguIapI"
+  "supabase_publishable_key": "b_publishable_YgmmzUSO4AqRpIyBf-VYaQ__qguIapI"
 }
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -27,7 +27,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Time Clock">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-lKUjnV8gLsWxqLLFalKadE5UeeBBZzfrewKDrSmiR0w=' https://cdn.jsdelivr.net; style-src 'sha256-gx19A0H4vsZwJpwDz/BUAWsRaODeTOwro4i1Y7kJW/0=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src https://*.supabase.co wss://*.supabase.co https://cdn.jsdelivr.net https://nominatim.openstreetmap.org; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-d9oD1hCjiyCa5j25aeCgTx4noP43AhBwS0k3FmX1yNY=' https://cdn.jsdelivr.net; style-src 'sha256-EiAbVeyGrSo+JmImMcGX2mjaaApGiEXs0cn+Mg16Nqg=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src https://*.supabase.co wss://*.supabase.co https://cdn.jsdelivr.net https://nominatim.openstreetmap.org; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
 <title>Time Clock</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231E2A33'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%23ffffff' stroke-opacity='.35' stroke-width='5'/%3E%3Cpath d='M32 14a18 18 0 0 1 18 18' fill='none' stroke='%23E8A317' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M32 22v11l7 4' fill='none' stroke='%23fff' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -117,7 +117,7 @@ a { color: var(--info); }
 .signin-card .brand-mark { margin: 0 auto 16px; }
 .signin-card h1 { margin-bottom: 6px; }
 .attn-card { border-color: var(--signal); }
-.page { padding: 20px 16px calc(var(--tabbar-h) + 28px + env(safe-area-inset-bottom)); display: grid; gap: 18px; max-width: 1080px; margin: 0 auto; outline: none; }
+.page { padding: 14px 16px calc(var(--tabbar-h) + 28px + env(safe-area-inset-bottom)); display: grid; gap: 18px; max-width: 1080px; margin: 0 auto; outline: none; }
 .page-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap; }
 .page-head p { margin-top: 4px; max-width: 64ch; }
 .section-title { font-size: 15px; color: var(--steel); font-weight: 600; margin-top: 4px; }
@@ -140,14 +140,11 @@ a { color: var(--info); }
 /* ---------- buttons & inputs ---------- */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 16px; border-radius: 12px;
   border: 1px solid var(--line); background: var(--surface); color: var(--ink); font-weight: 600; cursor: pointer; text-decoration: none; touch-action: manipulation; }
-.btn:hover { background: var(--surface-2); }
 .btn:disabled { opacity: .55; cursor: default; }
 .btn-primary { background: var(--slate); border-color: var(--slate); color: #fff; }
-.btn-primary:hover { background: var(--slate-2); }
 :root[data-theme="dark"] .btn-primary { background: #E7ECEF; color: #11181D; border-color: #E7ECEF; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .btn-primary { background: #E7ECEF; color: #11181D; border-color: #E7ECEF; } }
 .btn-in { background: var(--on); border-color: var(--on); color: #fff; }
-.btn-in:hover { background: #197A4E; }
 .btn-out { background: var(--signal); border-color: var(--signal); color: #1E2A33; }
 .btn-danger { color: var(--bad); }
 .btn-danger-solid { background: var(--bad); border-color: var(--bad); color: #fff; }
@@ -183,11 +180,11 @@ input:disabled, textarea:disabled, select:disabled { opacity: .7; }
 .tag.gold { background: var(--signal-soft); color: #8A5D00; border-color: transparent; }
 
 /* ---------- shell ---------- */
-.brand-mark { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: var(--slate); color: #fff; flex: none; }
+.brand-mark { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: var(--slate); color: #fff; flex: none; box-shadow: inset 0 0 0 1px rgba(255,255,255,.1); }
 .brand-name { font-weight: 700; }
+.topbar .brand-name { flex: 1; white-space: normal; line-height: 1.2; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .topbar { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; gap: 10px; padding: 10px 16px; padding-top: calc(10px + env(safe-area-inset-top));
   background: var(--mist); background: color-mix(in srgb, var(--mist) 90%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
-.top-email { font-size: 13px; color: var(--steel); max-width: 46vw; }
 .sidebar { display: none; }
 .tabbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: grid; grid-template-columns: repeat(5, 1fr); background: var(--surface);
   border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom); }
@@ -198,7 +195,7 @@ input:disabled, textarea:disabled, select:disabled { opacity: .7; }
 .more-list { display: grid; gap: 4px; }
 .more-item { display: flex; align-items: center; gap: 12px; padding: 14px 12px; border-radius: 12px; text-decoration: none; color: var(--ink); font-weight: 600;
   background: none; border: 0; text-align: left; cursor: pointer; font-size: 16px; }
-.more-item.active, .more-item:hover { background: var(--surface-2); }
+.more-item.active { background: var(--surface-2); }
 .pending-banner { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 12px 16px 0; padding: 12px 14px; border-radius: 12px;
   background: var(--signal-soft); color: #6B4800; font-size: 15px; }
 .mobile-only { display: inline-flex; }
@@ -216,50 +213,69 @@ input:disabled, textarea:disabled, select:disabled { opacity: .7; }
   .side-foot { margin-top: auto; display: grid; gap: 4px; border-top: 1px solid var(--line); padding-top: 12px; }
   .who { display: flex; gap: 10px; align-items: center; padding: 8px 12px; min-width: 0; }
   .who-text { min-width: 0; }
-  .topbar, .tabbar, .mobile-only { display: none; }
-  .page { padding: 28px 32px 48px; }
+  .tabbar, .mobile-only { display: none; }
+  .topbar { justify-content: flex-end; padding: 10px 32px; }
+  .topbar .brand-mark, .topbar .brand-name { display: none; }
+  .top-greet { font-size: 15px; }
+  .page { padding: 20px 32px 48px; }
 }
 
-/* ---------- live clock (the one bold element) ---------- */
-.hero { position: relative; border-radius: var(--r-hero); padding: 22px 18px 18px; color: #fff; display: grid; gap: 16px; justify-items: center; overflow: hidden;
+/* ---------- live clock dial (the one bold element) ---------- */
+/* The dial is sized to the screen so the time AND the clock-in/out button are visible without scrolling. */
+.hero { border-radius: var(--r-hero); padding: 10px; display: grid; place-items: center; color: #fff;
   background-color: var(--slate);
   background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
   background-size: 22px 22px; }
-.clock { position: relative; width: min(300px, 80vw); aspect-ratio: 1; }
-.clock-ring { position: absolute; inset: 0; width: 100%; height: 100%; }
-.tick { stroke: rgba(255,255,255,.16); stroke-width: 2; stroke-linecap: round; transition: stroke .25s; }
-.tick.major { stroke-width: 3.2; stroke: rgba(255,255,255,.3); }
-.tick.lit { stroke: rgba(255,255,255,.62); }
-.clock.on .tick.lit { stroke: #5FD39A; }
-.tick.now { stroke: var(--signal) !important; stroke-width: 4.5; }
-.clock-face { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; text-align: center; gap: 2px; }
-.clock-time { font-family: var(--font-cond); font-weight: 600; font-variant-numeric: tabular-nums; font-feature-settings: 'tnum'; line-height: 1; display: flex; align-items: baseline; }
-.clock-hm { font-size: clamp(54px, 17vw, 76px); letter-spacing: -0.01em; }
-.clock-sec { font-size: clamp(22px, 7vw, 30px); color: rgba(255,255,255,.7); margin-left: 2px; min-width: 1.6em; text-align: left; }
-.clock-ampm { font-size: 16px; color: rgba(255,255,255,.7); margin-left: 4px; font-family: var(--font); font-weight: 600; }
-.clock-date { font-size: 15px; color: rgba(255,255,255,.86); margin-top: 6px; }
-.clock-tz { font-size: 12px; color: rgba(255,255,255,.5); }
-.hero-status { text-align: center; display: grid; gap: 4px; }
-.hero-status-row { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; color: rgba(255,255,255,.75); }
-.hero-status.on .hero-status-row { color: #7DE0AE; }
-.hero-site { font-size: 22px; font-weight: 650; }
-.hero-meta { color: rgba(255,255,255,.7); font-size: 14px; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
-.hero-meta .sep::before { content: '|'; opacity: .4; }
-.hero-elapsed { font-family: var(--font-cond); font-size: 40px; font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: .01em; }
-.pulse { width: 10px; height: 10px; border-radius: 50%; background: #5FD39A; box-shadow: 0 0 0 0 rgba(95,211,154,.6); animation: pulse 2s infinite; }
+.dial { position: relative; container-type: inline-size; aspect-ratio: 1;
+  width: min(100%, calc(100dvh - 176px - env(safe-area-inset-top) - env(safe-area-inset-bottom)), 540px); min-width: 260px; }
+.dial-ring { position: absolute; inset: 0; width: 100%; height: 100%; }
+.tick { stroke: rgba(255,255,255,.15); stroke-width: 1.6; stroke-linecap: round; transition: stroke .25s; }
+.tick.major { stroke-width: 2.6; stroke: rgba(255,255,255,.3); }
+.tick.lit { stroke: rgba(255,255,255,.6); }
+.dial.on .tick.lit { stroke: #5FD39A; }
+.dial.lunch .tick.lit, .dial.pending .tick.lit { stroke: var(--signal); }
+.tick.now { stroke: var(--signal) !important; stroke-width: 3.6; }
+.dial.lunch .tick.now, .dial.pending .tick.now { stroke: #fff !important; }
+.dial-face { position: absolute; inset: 9%; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; gap: .8cqw; }
+.dial-face > * { flex-shrink: 0; }
+.dial-status { display: inline-flex; align-items: center; gap: 6px; font-weight: 650; border-radius: 999px; padding: .5cqw 2.6cqw;
+  font-size: 13px; font-size: 3.6cqw; background: rgba(255,255,255,.08); color: rgba(255,255,255,.8); }
+.dial-status.on { color: #7DE0AE; background: rgba(95,211,154,.14); }
+.dial-status.lunch, .dial-status.pending { color: #FFD27A; background: rgba(232,163,23,.16); }
+.clock-time { font-family: var(--font-cond); font-weight: 600; font-variant-numeric: tabular-nums; font-feature-settings: 'tnum'; line-height: .95; display: flex; align-items: baseline; }
+.clock-hm { font-size: min(18vw, 96px); font-size: 18cqw; letter-spacing: -0.01em; }
+.clock-sec { font-size: min(7vw, 36px); font-size: 7cqw; color: rgba(255,255,255,.7); margin-left: 1px; min-width: 1.6em; text-align: left; }
+.clock-ampm { font-size: 15px; font-size: 3.8cqw; color: rgba(255,255,255,.7); margin-left: 2px; font-family: var(--font); font-weight: 600; }
+.clock-date { font-size: 14px; font-size: 3.9cqw; color: rgba(255,255,255,.85); }
+.dial-site { font-size: 15px; font-size: 4.2cqw; font-weight: 650; max-width: 66cqw; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: .6cqw; }
+.dial-tag { font-size: 11px; font-size: 3cqw; font-weight: 600; color: var(--signal); border: 1px solid currentColor; border-radius: 99px; padding: 0 2cqw; margin-top: .4cqw; }
+.dial-elapsed { font-family: var(--font-cond); font-weight: 600; font-variant-numeric: tabular-nums; font-size: 28px; font-size: 8cqw; line-height: 1; }
+.dial.lunch .dial-elapsed, .dial.pending .dial-elapsed { color: rgba(255,255,255,.55); }
+.dial-sub { font-size: 12px; font-size: 3.4cqw; color: rgba(255,255,255,.65); }
+.dial-actions { display: flex; flex-direction: column; align-items: center; gap: 1.4cqw; margin-top: 1.2cqw; }
+.dial-btn { border: 0; cursor: pointer; touch-action: manipulation; font-family: var(--font); font-weight: 700; border-radius: 999px; transition: transform .08s;
+  min-width: 52cqw; height: 12.5cqw; min-height: 44px; font-size: 18px; font-size: 5.4cqw; padding: 0 6cqw; color: #fff; }
+.dial-btn:active { transform: scale(.97); }
+.dial-btn.in { background: var(--on); box-shadow: 0 6px 22px rgba(30,140,90,.45); }
+.dial-btn.out { background: var(--signal); color: #1E2A33; }
+.dial-btn.small { min-width: 0; height: 9cqw; min-height: 34px; font-size: 14px; font-size: 3.9cqw; padding: 0 5cqw;
+  background: rgba(255,255,255,.12); color: #fff; font-weight: 650; }
+.dial-btn.small.lunch-on { background: rgba(232,163,23,.22); color: #FFD27A; }
+.pulse { width: 9px; height: 9px; border-radius: 50%; background: #5FD39A; box-shadow: 0 0 0 0 rgba(95,211,154,.6); animation: pulse 2s infinite; flex: none; }
 @keyframes pulse { 70% { box-shadow: 0 0 0 10px rgba(95,211,154,0); } 100% { box-shadow: 0 0 0 0 rgba(95,211,154,0); } }
-.btn-clock { width: 100%; max-width: 420px; min-height: 64px; border-radius: 18px; border: 0; display: inline-flex; align-items: center; justify-content: center;
-  gap: 10px; font-size: 21px; font-weight: 700; cursor: pointer; touch-action: manipulation; transition: transform .08s; }
-.btn-clock:active { transform: scale(.98); }
-.btn-clock.in { background: var(--on); color: #fff; box-shadow: 0 8px 24px rgba(30,140,90,.35); }
-.btn-clock.out { background: var(--signal); color: #1E2A33; }
-@media (min-width: 760px) {
-  .hero { grid-template-columns: auto 1fr; grid-template-areas: 'clock status' 'clock button'; align-items: center; justify-items: start; padding: 26px 32px; column-gap: 36px; }
-  .hero .clock { grid-area: clock; width: 300px; }
-  .hero-status { grid-area: status; text-align: left; align-self: end; }
-  .hero-status-row, .hero-meta { justify-content: flex-start; }
-  .btn-clock { grid-area: button; align-self: start; }
-}
+.stopped-note { text-align: center; color: var(--steel); font-size: 15px; }
+.top-greet { font-size: 14px; font-weight: 600; color: var(--ink); max-width: 50%; text-align: right; flex-shrink: 0; line-height: 1.25;
+  white-space: normal !important; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.on-clock-row .row-side { gap: 8px; }
+.cell-sub { font-weight: 400; }
+.submit-bar { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: space-between; padding: 16px;
+  border-radius: var(--r-card); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); }
+.submit-bar-num { font-size: 26px; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.15; }
+.submit-bar-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+@media (max-width: 520px) { .submit-bar-actions, .submit-bar-actions .btn { width: 100%; } }
+.seg-wide { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; justify-self: stretch; }
+.seg-wide button { padding: 12px 8px; font-size: 15px; }
 
 /* ---------- stats ---------- */
 .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -270,16 +286,13 @@ input:disabled, textarea:disabled, select:disabled { opacity: .7; }
 .stat-value { font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
 .stat-sub { font-size: 12.5px; color: var(--steel); }
 .stat.link { text-decoration: none; color: inherit; }
-.stat.link:hover { border-color: var(--steel); }
 .stat.attn { border-color: var(--signal); background: linear-gradient(var(--signal-soft), var(--signal-soft)) top / 100% 4px no-repeat, var(--surface); }
 
 /* ---------- lists ---------- */
 .list { display: grid; gap: 8px; }
 .row-item { display: flex; gap: 12px; align-items: center; width: 100%; padding: 12px 14px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line);
   text-align: left; cursor: pointer; text-decoration: none; color: inherit; }
-.row-item:hover { border-color: var(--steel); }
 .row-item.static { cursor: default; }
-.row-item.static:hover { border-color: var(--line); }
 .row-item.live { border-color: var(--on); box-shadow: inset 4px 0 0 var(--on); }
 .row-item.flagged { box-shadow: inset 4px 0 0 var(--bad); }
 .row-main { flex: 1; min-width: 0; display: grid; gap: 2px; }
@@ -307,7 +320,6 @@ input:disabled, textarea:disabled, select:disabled { opacity: .7; }
 .avatar { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; font-weight: 700; background: var(--mist); color: var(--ink); flex: none; }
 .avatar.sm { width: 34px; height: 34px; border-radius: 10px; font-size: 13px; }
 .note-card { text-align: left; padding: 14px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); cursor: pointer; display: grid; gap: 6px; color: inherit; }
-.note-card:hover { border-color: var(--steel); }
 .note-card.archived { opacity: .65; }
 .note-top { display: flex; gap: 8px; align-items: center; }
 .note-top h3 { flex: 1; overflow-wrap: anywhere; }
@@ -424,6 +436,23 @@ body.printing #print-root { display: block; position: fixed; inset: 0; z-index: 
   .print-doc { padding: 0; max-width: none; }
 }
 .noscript { padding: 24px; text-align: center; }
+
+/* Hover effects only on devices with a real pointer. On phones a tap leaves a "sticky" hover
+   that could hide a button's text (the invisible "Clock out now" button). */
+@media (hover: hover) {
+  .btn:hover { background: var(--surface-2); }
+  .btn-primary:hover { background: var(--slate-2); }
+  .btn-in:hover { background: #197A4E; }
+  .stat.link:hover { border-color: var(--steel); }
+  .row-item:hover { border-color: var(--steel); }
+  .row-item.static:hover { border-color: var(--line); }
+  .note-card:hover { border-color: var(--steel); }
+  .more-item:hover { background: var(--surface-2); }
+  .btn-out:hover { background: #D6950F; }
+  .btn-danger-solid:hover { background: #9C2D1A; }
+  .btn-google:hover { background: #F3F5F6; }
+  .btn-ghost:hover { background: var(--surface-2); }
+}
 </style>
 </head>
 <body>
@@ -3659,6 +3688,949 @@ grant execute on function
 
 commit;
 </script>
+<script type="text/plain" id="sql-update3">
+-- =====================================================================
+--  EMPLOYEE TIME CLOCK — UPDATE 3
+--  Run AFTER database steps A and B. SQL Editor -> New query -> paste -> Run.
+--  (If Supabase shows a warning pop-up, choose "Run without RLS": this
+--   script turns Row Level Security on itself.)
+--
+--  Adds:
+--    * lunch punches (start / end lunch while on the clock)
+--    * two-step clock-out: the time is fixed the moment "Clock out" is tapped
+--    * administrator can clock employees out
+--    * "Submit hours" batches, and marking a batch as paid
+--    * backups requested by the app right after every change
+-- =====================================================================
+begin;
+
+-- ---------------------------------------------------------------------
+-- 1. Lunch punches and the two-step clock-out
+-- ---------------------------------------------------------------------
+create table public.shift_breaks (
+  id               uuid primary key default gen_random_uuid(),
+  shift_id         uuid not null,
+  employee_id      uuid not null references public.employees(id) on delete restrict,
+  started_at       timestamptz not null default now(),
+  ended_at         timestamptz,
+  start_request_id uuid unique,
+  end_request_id   uuid unique,
+  created_at       timestamptz not null default now(),
+  foreign key (shift_id, employee_id) references public.shifts (id, employee_id),
+  check (ended_at is null or ended_at >= started_at)
+);
+create unique index shift_breaks_one_open on public.shift_breaks (shift_id) where ended_at is null;
+create index shift_breaks_shift_idx on public.shift_breaks (shift_id);
+
+alter table public.shifts
+  add column clock_out_pending_at timestamptz,
+  add constraint shifts_pending_only_while_active check (clock_out_pending_at is null or clock_out_at is null);
+
+alter table public.shift_revisions drop constraint shift_revisions_change_kind_check;
+alter table public.shift_revisions add constraint shift_revisions_change_kind_check
+  check (change_kind in ('admin_edit', 'admin_add', 'worksite_change', 'admin_clock_out'));
+
+-- ---------------------------------------------------------------------
+-- 2. Submitted hours (one batch per "Submit hours")
+-- ---------------------------------------------------------------------
+create table public.hour_submissions (
+  id                 uuid primary key default gen_random_uuid(),
+  employee_id        uuid not null references public.employees(id) on delete restrict,
+  submitted_at       timestamptz not null default now(),
+  request_id         uuid not null unique,
+  employee_note      text check (employee_note is null or length(employee_note) <= 2000),
+  period_start       date,
+  period_end         date,
+  shift_count        integer not null default 0,
+  net_minutes        numeric not null default 0,
+  estimated_amount   numeric(12,2),
+  currency_code      text not null,
+  status             text not null default 'submitted' check (status in ('submitted', 'paid')),
+  paid_at            timestamptz,
+  paid_by            uuid references public.employees(id) on delete restrict,
+  paid_on            date,
+  payment_method     text check (payment_method is null or length(payment_method) <= 60),
+  payment_reference  text check (payment_reference is null or length(payment_reference) <= 80),
+  amount_paid        numeric(12,2),
+  paid_request_id    uuid unique,
+  unique (id, employee_id)
+);
+create index hour_submissions_status_idx on public.hour_submissions (status, submitted_at desc);
+
+alter table public.reports add column submission_id uuid;
+alter table public.reports add constraint reports_submission_fk
+  foreign key (submission_id, employee_id) references public.hour_submissions (id, employee_id);
+create index reports_submission_idx on public.reports (submission_id);
+
+-- A payment reference may repeat across the reports of one batch, but never twice on one report.
+drop index public.payments_reference_unique;
+create unique index payments_reference_unique on public.payments (report_id, lower(reference))
+  where reference is not null and voided_at is null;
+
+-- Backups requested by the app after a change
+alter table public.backup_runs drop constraint backup_runs_trigger_check;
+alter table public.backup_runs add constraint backup_runs_trigger_check
+  check (trigger in ('manual', 'auto_change', 'scheduled', 'app_change'));
+alter table public.company_settings drop constraint company_settings_backup_after_change_minutes_check;
+alter table public.company_settings add constraint company_settings_backup_after_change_minutes_check
+  check (backup_after_change_minutes between 1 and 1440);
+update public.company_settings set backup_after_change_minutes = 2 where backup_after_change_minutes = 10;
+alter table public.company_settings alter column backup_after_change_minutes set default 2;
+
+-- ---------------------------------------------------------------------
+-- 3. Triggers, Row Level Security, views
+-- ---------------------------------------------------------------------
+create trigger shift_breaks_audit     after insert or update or delete on public.shift_breaks     for each row execute function private.audit_row_change('id');
+create trigger hour_submissions_audit after insert or update or delete on public.hour_submissions for each row execute function private.audit_row_change('id');
+create trigger shift_breaks_no_delete     before delete on public.shift_breaks     for each row execute function private.block_changes();
+create trigger hour_submissions_no_delete before delete on public.hour_submissions for each row execute function private.block_changes();
+
+alter table public.shift_breaks     enable row level security;
+alter table public.hour_submissions enable row level security;
+revoke all on public.shift_breaks, public.hour_submissions from anon, authenticated;
+grant select on public.shift_breaks, public.hour_submissions to authenticated;
+create policy shift_breaks_read on public.shift_breaks for select to authenticated
+  using (employee_id = (select private.current_employee_id()) or (select private.is_admin()));
+create policy hour_submissions_read on public.hour_submissions for select to authenticated
+  using (employee_id = (select private.current_employee_id()) or (select private.is_admin()));
+
+create view public.submission_details with (security_invoker = true) as
+select h.*,
+       e.employee_number,
+       e.full_name,
+       coalesce(e.display_name, e.full_name) as display_name,
+       x.report_count,
+       x.worksites,
+       x.amount_due,
+       x.amount_paid_total,
+       x.current_net_minutes,
+       x.current_estimated_amount,
+       x.has_returned,
+       x.missing_rate,
+       x.changed_after_submission
+from public.hour_submissions h
+join public.employees e on e.id = h.employee_id
+left join lateral (
+  select count(r.id)                                                           as report_count,
+         string_agg(distinct gs.worksite_label, '; ')                          as worksites,
+         coalesce(sum(coalesce(r.approved_amount, r.snapshot_estimated_amount)), 0) as amount_due,
+         coalesce(sum(r.amount_paid), 0)                                       as amount_paid_total,
+         coalesce(sum(gs.net_minutes), 0)                                      as current_net_minutes,
+         coalesce(sum(gs.estimated_amount), 0)                                 as current_estimated_amount,
+         coalesce(bool_or(r.status = 'returned'), false)                       as has_returned,
+         coalesce(bool_or(gs.missing_rate), false)                             as missing_rate,
+         coalesce(bool_or(r.changed_after_submission), false)                  as changed_after_submission
+  from public.reports r
+  join public.group_summaries gs on gs.work_group_id = r.work_group_id
+  where r.submission_id = h.id) x on true;
+revoke all on public.submission_details from anon, authenticated;
+grant select on public.submission_details to authenticated;
+
+-- ---------------------------------------------------------------------
+-- 4. Helpers
+-- ---------------------------------------------------------------------
+-- Minutes of lunch punched on a shift, counted up to a given moment.
+create or replace function private.break_minutes(p_shift_id uuid, p_upto timestamptz)
+returns integer
+language sql stable security definer set search_path = ''
+as $$
+  select coalesce(round(sum(extract(epoch from (least(coalesce(b.ended_at, p_upto), p_upto) - b.started_at))) / 60.0), 0)::integer
+  from public.shift_breaks b
+  where b.shift_id = p_shift_id and b.started_at < p_upto;
+$$;
+
+create or replace function private.shift_json(p_shift_id uuid)
+returns jsonb
+language sql stable security definer set search_path = ''
+as $$
+  select jsonb_build_object(
+    'shift_id', s.id, 'employee_id', s.employee_id, 'work_group_id', s.work_group_id,
+    'cycle_number', g.cycle_number, 'worksite_id', w.id, 'worksite_label', w.label,
+    'worksite_source', w.source, 'clock_in_method', s.clock_in_method,
+    'clock_in_at', s.clock_in_at, 'clock_out_at', s.clock_out_at,
+    'clock_out_pending_at', s.clock_out_pending_at,
+    'lunch_started_at', (select b.started_at from public.shift_breaks b where b.shift_id = s.id and b.ended_at is null),
+    'break_count', (select count(*) from public.shift_breaks b where b.shift_id = s.id),
+    'break_minutes_closed', coalesce((select round(sum(extract(epoch from (b.ended_at - b.started_at))) / 60.0, 2)
+                                      from public.shift_breaks b where b.shift_id = s.id and b.ended_at is not null), 0),
+    'lunch_minutes', s.lunch_minutes, 'gross_minutes', s.gross_minutes, 'net_minutes', s.net_minutes,
+    'needs_review', s.needs_review, 'review_reason', s.review_reason, 'server_now', now())
+  from public.shifts s
+  join public.work_groups g on g.id = s.work_group_id
+  join public.worksites w on w.id = s.worksite_id
+  where s.id = p_shift_id;
+$$;
+
+-- Paying a $0 report counts as paid; keep the submission batch status in step with its reports.
+create or replace function private.recompute_report_payment(p_report_id uuid)
+returns void
+language plpgsql volatile security definer set search_path = ''
+as $$
+declare v_paid numeric; v_due numeric; v_sub uuid;
+begin
+  select coalesce(sum(amount), 0) into v_paid from public.payments where report_id = p_report_id and voided_at is null;
+  select coalesce(approved_amount, snapshot_estimated_amount), submission_id into v_due, v_sub from public.reports where id = p_report_id;
+  update public.reports
+     set amount_paid = v_paid,
+         payment_status = case when v_due is not null and v_due <= 0 and status = 'approved' then 'paid'
+                               when v_paid <= 0 then 'unpaid'
+                               when v_due is not null and v_paid >= v_due then 'paid'
+                               else 'partially_paid' end
+   where id = p_report_id;
+  if v_sub is not null then
+    update public.hour_submissions h
+       set status = case when not exists (select 1 from public.reports r where r.submission_id = h.id and r.payment_status <> 'paid')
+                         then 'paid' else 'submitted' end,
+           amount_paid = (select coalesce(sum(r.amount_paid), 0) from public.reports r where r.submission_id = h.id)
+     where h.id = v_sub;
+  end if;
+end;
+$$;
+
+-- Shared clock-out: fixes the out time, works out lunch, saves. Caller holds the employee lock.
+create or replace function private.finish_clock_out(p_shift_id uuid, p_lunch_minutes integer, p_request_id uuid)
+returns void
+language plpgsql volatile security definer set search_path = ''
+as $$
+declare
+  v_cs     public.company_settings := private.settings();
+  v_shift  public.shifts;
+  v_out    timestamptz;
+  v_gross  numeric;
+  v_lunch  integer;
+  v_review text;
+begin
+  select * into v_shift from public.shifts where id = p_shift_id for update;
+  v_out := coalesce(v_shift.clock_out_pending_at, now());
+  v_gross := extract(epoch from (v_out - v_shift.clock_in_at)) / 60.0;
+  if v_gross <= 0 then
+    raise exception 'Clock-out must be after clock-in' using errcode = '22023';
+  end if;
+
+  if exists (select 1 from public.shift_breaks where shift_id = p_shift_id) then
+    -- lunch was punched: use the punched time (an open lunch ends at the clock-out time)
+    update public.shift_breaks set ended_at = greatest(v_out, started_at) where shift_id = p_shift_id and ended_at is null;
+    v_lunch := private.break_minutes(p_shift_id, v_out);
+    if v_lunch >= v_gross then v_lunch := greatest(0, ceil(v_gross)::integer - 1); end if;
+    if v_lunch > v_cs.max_lunch_minutes then
+      v_review := 'Punched lunch longer than ' || v_cs.max_lunch_minutes || ' minutes';
+    end if;
+  else
+    if p_lunch_minutes is null or p_lunch_minutes < 0 or p_lunch_minutes > v_cs.max_lunch_minutes then
+      raise exception 'Lunch must be between 0 and % minutes.', v_cs.max_lunch_minutes using errcode = '22023';
+    end if;
+    if p_lunch_minutes > 0 and p_lunch_minutes >= v_gross then
+      raise exception 'The lunch break cannot be as long as the whole shift (% minutes worked).', floor(v_gross) using errcode = '22023';
+    end if;
+    v_lunch := p_lunch_minutes;
+  end if;
+
+  update public.shifts
+     set clock_out_at = v_out,
+         clock_out_pending_at = null,
+         lunch_minutes = v_lunch,
+         clock_out_request_id = p_request_id,
+         needs_review = needs_review or v_gross > v_cs.max_shift_hours * 60 or v_review is not null,
+         review_reason = coalesce(case when v_gross > v_cs.max_shift_hours * 60
+                                       then 'Shift longer than ' || v_cs.max_shift_hours || ' hours' end,
+                                  v_review, review_reason)
+   where id = p_shift_id;
+end;
+$$;
+
+-- ---------------------------------------------------------------------
+-- 5. Employee functions
+-- ---------------------------------------------------------------------
+create or replace function public.start_lunch(p_request_id uuid)
+returns jsonb
+language plpgsql volatile security definer set search_path = ''
+as $$
+declare v_me uuid := private.current_employee_id(); v_shift public.shifts; v_b public.shift_breaks;
+begin
+  if v_me is null then raise exception 'Access denied' using errcode = '42501'; end if;
+  if p_request_id is null then raise exception 'Missing request id' using errcode = '22023'; end if;
+  perform pg_advisory_xact_lock(hashtextextended('timeclock:' || v_me::text, 0));
+  select * into v_b from public.shift_breaks where start_request_id = p_request_id;
+  if found then
+    if v_b.employee_id <> v_me then raise exception 'Access denied' using errcode = '42501'; end if;
+    return private.shift_json(v_b.shift_id) || jsonb_build_object('repeated_request', true);
+  end if;
+  select * into v_shift from public.shifts where employee_id = v_me and clock_out_at is null for update;
+  if not found then raise exception 'You are not clocked in.' using errcode = 'P0001'; end if;
+  if v_shift.clock_out_pending_at is not null then
+    raise exception 'You are clocking out. Finish or cancel the clock-out first.' using errcode = 'P0001';
+  end if;
+  if exists (select 1 from public.shift_breaks where shift_id = v_shift.id and ended_at is null) then
+    raise exception 'You are already on lunch.' using errcode = 'P0001';
+  end if;
+  perform set_config('app.audit_action', 'start_lunch', true);
+  insert into public.shift_breaks (shift_id, employee_id, start_request_id) values (v_shift.id, v_me, p_request_id);
+  return private.shift_json(v_shift.id);
+end;
+$$;
+
+create or replace function public.end_lunch(p_request_id uuid)
+returns jsonb
+language plpgsql volatile security definer set search_path = ''
+as $$
+declare v_me uuid := private.current_employee_id(); v_shift public.shifts; v_b public.shift_breaks;
+begin
+  if v_me is null then raise exception 'Access denied' using errcode = '42501'; end if;
+  if p_request_id is null then raise exception 'Missing request id' using errcode = '22023'; end if;
+  perform pg_advisory_xact_lock(hashtextextended('timeclock:' || v_me::text, 0));
+  select * into v_b from public.shift_breaks where end_request_id = p_request_id;
+  if found then
+    if v_b.employee_id <> v_me then raise exception 'Access denied' using errcode = '42501'; end if;
+    return private.shift_json(v_b.shift_id) || jsonb_build_object('repeated_request', true);
+  end if;
+  select * into v_shift from public.shifts where employee_id = v_me and clock_out_at is null for update;
+  if not found then raise exception 'You are not clocked in.' using errcode = 'P0001'; end if;
+  perform set_config('app.audit_action', 'end_lunch', true);
+  update public.shift_breaks set ended_at = now(), end_request_id = p_request_id
+   where shift_id = v_shift.id and ended_at is null;
+  if not found then raise exception 'You are not on lunch.' using errcode = 'P0001'; end if;
+  return private.shift_json(v_shift.id);
+end;
+$$;
+
+-- Step 1 of clocking out: the clock-out time is fixed now (timer stops).
+create or replace function public.begin_clock_out()
+returns jsonb
+language plpgsql volatile security definer set search_path = ''
+as $$
+declare v_me uuid := private.current_employee_id(); v_shift public.shifts;
+begin
+  if v_me is null then raise exception 'Access denied' using errcode = '42501'; end if;
+  perform pg_advisory_xact_lock(hashtextextended('timeclock:' || v_me::text, 0));
+  select * into v_shift from public.shifts where employee_id = v_me and clock_out_at is null for update;
+  if not found then raise exception 'You are not clocked in.' using errcode = 'P0001', hint = 'NOT_CLOCKED_IN'; end if;
+  if v_shift.clock_out_pending_at is null then
+    perform set_config('app.audit_action', 'begin_clock_out', true);
+    update public.shifts set clock_out_pending_at = now() where id = v_shift.id;
+  end if;
+  return private.shift_json(v_shift.id);
+end;
+$$;
+
+-- "Keep working": cancels step 1, the shift keeps running.
+create or replace function public.cancel_clock_out()
+returns jsonb
+language plpgsql volatile security definer set search_path = ''
+as $$
+declare v_me uuid := private.current_employee_id(); v_shift public.shifts;
+begin
+  if v_me is null then raise exception 'Access denied' using errcode = '42501'; end if;
+  perform pg_advisory_xact_lock(hashtextextended('timeclock:' || v_me::text, 0));
+  select * into v_shift from public.shifts where employee_id = v_me and clock_out_at is null for update;
+  if not found then raise exception 'You are not clocked in.' using errcode = 'P0001'; end if;
+  if v_shift.clock_out_pending_at is not null then
+    perform set_config('app.audit_action', 'cancel_clock_out', true);
+    update public.shifts set clock_out_pending_at = null where id = v_shift.id;
+  end if;
+  return private.shift_json(v_shift.id);
+end;
+$$;
+
+-- Step 2: confirm. p_lunch_minutes is only used when no lunch was punched.
+create or replace function public.clock_out(p_request_id uuid, p_lunch_minutes integer)
+returns jsonb
+language plpgsql volatile security definer set search_path = ''
+as $$
+declare v_me uuid := private.current_employee_id(); v_shift public.shifts;
+begin
+  if v_me is null then raise exception 'Access denied' using errcode = '42501'; end if;
+  if p_request_id is null then raise exception 'Missing request id' using errcode = '22023'; end if;
+  perform pg_advisory_xact_lock(hashtextextended('timeclock:' || v_me::text, 0));
+  select * into v_shift from public.shifts where clock_out_request_id = p_request_id;
+  if found then
+    if v_shift.employee_id <> v_me then raise exception 'Access denied' using errcode = '42501'; end if;
+    return private.shift_json(v_shift.id) || jsonb_build_object('repeated_request', true);
+  end if;
+  select * into v_shift from public.shifts where employee_id = v_me and clock_out_at is null for update;
+  if not found then raise exception 'You are not clocked in.' using errcode = 'P0001', hint = 'NOT_CLOCKED_IN'; end if;
+  perform set_config('app.audit_action', 'clock_out', true);
+  perform private.finish_clock_out(v_shift.id, p_lunch_minutes, p_request_id);
+  return private.shift_json(v_shift.id);
+end;
+$$;
+
+-- Submit all completed, unsubmitted hours in one go. New hours start fresh afterwards.
+create or replace function public.submit_hours(p_request_id uuid, p_note text default null)
+returns jsonb
+language plpgsql volatile security definer set search_path = ''
+as $$
+declare
+  v_me    uuid := private.current_employee_id();
+  v_cs    public.company_settings := private.settings();
+  v_sub   public.hour_submissions;
+  v_g     record;
+  v_r     jsonb;
+  v_n     integer := 0;
+begin
+  if v_me is null then raise exception 'Access denied' using errcode = '42501'; end if;
+  if p_request_id is null then raise exception 'Missing request id' using errcode = '22023'; end if;
+  perform pg_advisory_xact_lock(hashtextextended('timeclock:' || v_me::text, 0));
+  select * into v_sub from public.hour_submissions where request_id = p_request_id;
+  if found then
+    if v_sub.employee_id <> v_me then raise exception 'Access denied' using errcode = '42501'; end if;
+    return to_jsonb(v_sub) || jsonb_build_object('repeated_request', true);
+  end if;
+  if exists (select 1 from public.shifts where employee_id = v_me and clock_out_at is null) then
+    raise exception 'Clock out before submitting your hours.' using errcode = 'P0001', hint = 'ACTIVE_SHIFT';
+  end if;
+  if p_note is not null and length(p_note) > 2000 then
+    raise exception 'Note is too long (2000 characters max).' using errcode = '22023';
+  end if;
+
+  perform set_config('app.audit_action', 'submit_hours', true);
+  insert into public.hour_submissions (employee_id, request_id, employee_note, currency_code)
+  values (v_me, p_request_id, nullif(btrim(p_note), ''), v_cs.currency_code)
+  returning * into v_sub;
+
+  for v_g in
+    select g.id from public.work_groups g
+    where g.employee_id = v_me and g.status in ('open', 'returned')
+      and exists (select 1 from public.shifts s where s.work_group_id = g.id and s.clock_out_at is not null)
+    order by g.opened_at
+  loop
+    v_r := public.submit_report(v_g.id, gen_random_uuid(), p_note);
+    perform set_config('app.audit_action', 'submit_hours', true);
+    update public.reports set submission_id = v_sub.id where id = (v_r ->> 'report_id')::uuid;
+    v_n := v_n + 1;
+  end loop;
+  if v_n = 0 then
+    raise exception 'There are no new hours to submit.' using errcode = 'P0001', hint = 'NOTHING_TO_SUBMIT';
+  end if;
+
+  update public.hour_submissions h
+     set (period_start, period_end, shift_count, net_minutes, estimated_amount) =
+         (select min(r.period_start), max(r.period_end),
+                 coalesce(sum(jsonb_array_length(sn.snapshot -> 'shifts')), 0)::integer,
+                 coalesce(sum(r.snapshot_net_minutes), 0), sum(r.snapshot_estimated_amount)
+          from public.reports r
+          join public.report_snapshots sn on sn.report_id = r.id and sn.version = r.submission_count
+          where r.submission_id = h.id)
+   where h.id = v_sub.id
+  returning * into v_sub;
+  return to_jsonb(v_sub);
+end;
+$$;
+
+create or replace function public.get_my_dashboard()
+returns jsonb
+language plpgsql stable security definer set search_path = ''
+as $$
+declare
+  v_me    uuid := private.current_employee_id();
+  v_cs    public.company_settings := private.settings();
+  v_today date;
+  v_active jsonb;
+  v_group uuid;
+begin
+  if v_me is null then
+    raise exception 'Access denied' using errcode = '42501';
+  end if;
+  v_today := (now() at time zone v_cs.time_zone)::date;
+
+  select private.shift_json(s.id), s.work_group_id into v_active, v_group
+  from public.shifts s where s.employee_id = v_me and s.clock_out_at is null;
+
+  if v_group is null then
+    select g.id into v_group from public.work_groups g
+    where g.employee_id = v_me and g.status = 'open'
+    order by (select max(s.clock_in_at) from public.shifts s where s.work_group_id = g.id) desc nulls last
+    limit 1;
+  end if;
+
+  return jsonb_build_object(
+    'server_now', now(),
+    'today', v_today,
+    'profile', (select jsonb_build_object(
+                  'employee_id', e.id, 'employee_number', e.employee_number, 'full_name', e.full_name,
+                  'display_name', e.display_name, 'preferred_name', e.preferred_name, 'job_title', e.job_title,
+                  'email', g.google_email, 'role', a.role, 'status', a.status,
+                  'employment_start_date', e.employment_start_date)
+                from public.employees e
+                join public.employee_access a on a.employee_id = e.id
+                left join public.employee_google_accounts g on g.employee_id = e.id and g.revoked_at is null
+                where e.id = v_me),
+    'preferences', coalesce((select to_jsonb(p) - 'employee_id' - 'updated_at' from public.employee_preferences p where p.employee_id = v_me),
+                            '{"theme":"system","clock_format":"company","show_seconds":true,"reduce_motion":false}'::jsonb),
+    'settings', to_jsonb(v_cs) - 'default_hourly_rate' - 'backups_enabled' - 'backup_after_change_minutes' - 'backup_daily_hour' - 'id'
+                - 'overtime_enabled' - 'daily_ot_after_hours' - 'daily_dt_after_hours' - 'weekly_ot_after_hours' - 'ot_multiplier' - 'dt_multiplier',
+    'active_shift', v_active,
+    'today_net_minutes', (select coalesce(sum(net_minutes), 0) from public.shifts
+                          where employee_id = v_me and clock_out_at is not null
+                            and (clock_in_at at time zone v_cs.time_zone)::date = v_today),
+    'current_rate', private.rate_on(v_me, v_today),
+    'current_group', case when v_group is null then null else
+                       (select jsonb_build_object('work_group_id', g.id, 'worksite_label', w.label, 'cycle_number', g.cycle_number,
+                                                  'status', g.status) || private.group_totals(g.id)
+                        from public.work_groups g join public.worksites w on w.id = g.worksite_id where g.id = v_group) end,
+    'open_groups', (select count(*) from public.work_groups where employee_id = v_me and status in ('open', 'returned')),
+    'open_hours', (select jsonb_build_object(
+                      'shift_count', count(*),
+                      'net_minutes', coalesce(sum(s.net_minutes), 0),
+                      'estimated_amount', coalesce(sum(round(s.net_minutes / 60.0 * private.rate_on(s.employee_id, private.local_date(s.clock_in_at)), 2)), 0),
+                      'first_date', min(private.local_date(s.clock_in_at)),
+                      'last_date', max(private.local_date(s.clock_in_at)))
+                   from public.shifts s join public.work_groups g on g.id = s.work_group_id
+                   where s.employee_id = v_me and s.clock_out_at is not null and g.status in ('open', 'returned')),
+    'last_submission', (select jsonb_build_object('id', h.id, 'status', h.status, 'submitted_at', h.submitted_at,
+                                                  'net_minutes', h.net_minutes, 'paid_on', h.paid_on, 'amount_paid', h.amount_paid)
+                        from public.hour_submissions h where h.employee_id = v_me order by h.submitted_at desc limit 1),
+    'reports', (select jsonb_build_object(
+                  'submitted',    count(*) filter (where status in ('submitted', 'under_review')),
+                  'returned',     count(*) filter (where status = 'returned'),
+                  'approved',     count(*) filter (where status = 'approved'),
+                  'latest_status', (select status from public.reports where employee_id = v_me order by submitted_at desc limit 1),
+                  'latest_payment_status', (select payment_status from public.reports where employee_id = v_me order by submitted_at desc limit 1))
+                from public.reports where employee_id = v_me),
+    'payments', jsonb_build_object(
+                  'outstanding', (select coalesce(sum(greatest(coalesce(approved_amount, 0) - amount_paid, 0)), 0)
+                                  from public.reports where employee_id = v_me and status = 'approved'),
+                  'last_payment', (select jsonb_build_object('amount', amount, 'paid_on', paid_on)
+                                   from public.payments where employee_id = v_me and voided_at is null
+                                   order by paid_on desc, created_at desc limit 1))
+  );
+end;
+$$;
+
+-- ---------------------------------------------------------------------
+-- 6. Administrator functions
+-- ---------------------------------------------------------------------
+create or replace function public.admin_clock_out(p_shift_id uuid, p_lunch_minutes integer, p_reason text, p_request_id uuid)
+returns jsonb
+language plpgsql volatile security definer set search_path = ''
+as $$
+declare
+  v_admin uuid := private.require_admin();
+  v_emp   uuid;
+  v_old   public.shifts;
+begin
+  if p_request_id is null then raise exception 'Missing request id' using errcode = '22023'; end if;
+  select employee_id into v_emp from public.shifts where id = p_shift_id;
+  if v_emp is null then raise exception 'Shift not found' using errcode = 'P0002'; end if;
+  perform pg_advisory_xact_lock(hashtextextended('timeclock:' || v_emp::text, 0));
+  select * into v_old from public.shifts where clock_out_request_id = p_request_id;
+  if found then return private.shift_json(v_old.id) || jsonb_build_object('repeated_request', true); end if;
+  select * into v_old from public.shifts where id = p_shift_id for update;
+  if v_old.clock_out_at is not null then
+    raise exception 'This shift is already clocked out.' using errcode = 'P0001';
+  end if;
+  perform set_config('app.audit_action', 'admin_clock_out', true);
+  perform private.finish_clock_out(p_shift_id, p_lunch_minutes, p_request_id);
+  insert into public.shift_revisions (shift_id, revision_no, change_kind, old_values, new_values, reason, changed_by)
+  values (p_shift_id,
+          coalesce((select max(revision_no) from public.shift_revisions where shift_id = p_shift_id), 0) + 1,
+          'admin_clock_out',
+          jsonb_build_object('clock_in_at', v_old.clock_in_at, 'clock_out_at', null, 'lunch_minutes', v_old.lunch_minutes,
+                             'worksite_id', v_old.worksite_id, 'work_group_id', v_old.work_group_id),
+          (select jsonb_build_object('clock_in_at', s.clock_in_at, 'clock_out_at', s.clock_out_at, 'lunch_minutes', s.lunch_minutes,
+                                     'worksite_id', s.worksite_id, 'work_group_id', s.work_group_id, 'net_minutes', s.net_minutes)
+           from public.shifts s where s.id = p_shift_id),
+          coalesce(nullif(btrim(p_reason), ''), 'Clocked out by an administrator'),
+          v_admin);
+  return private.shift_json(p_shift_id);
+end;
+$$;
+
+-- Mark a whole "Submit hours" batch as paid: approves its reports and records the payment.
+create or replace function public.admin_mark_submission_paid(
+  p_submission_id uuid, p_paid_on date, p_method text, p_reference text, p_note text, p_request_id uuid)
+returns jsonb
+language plpgsql volatile security definer set search_path = ''
+as $$
+declare
+  v_admin uuid := private.require_admin();
+  v_cs    public.company_settings := private.settings();
+  v_sub   public.hour_submissions;
+  v_rep   public.reports;
+  v_due   numeric;
+  v_paid  numeric := 0;
+begin
+  if p_request_id is null then raise exception 'Missing request id' using errcode = '22023'; end if;
+  select * into v_sub from public.hour_submissions where id = p_submission_id for update;
+  if not found then raise exception 'Submitted hours not found' using errcode = 'P0002'; end if;
+  if v_sub.paid_request_id = p_request_id then
+    return to_jsonb(v_sub) || jsonb_build_object('repeated_request', true);
+  end if;
+  if v_sub.status = 'paid' then raise exception 'These hours are already marked as paid.' using errcode = 'P0001'; end if;
+  if p_paid_on is null or p_paid_on > (now() at time zone v_cs.time_zone)::date then
+    raise exception 'Enter the actual payment date (not in the future)' using errcode = '22023';
+  end if;
+
+  for v_rep in select * from public.reports where submission_id = v_sub.id order by submitted_at for update loop
+    if v_rep.status = 'returned' then
+      raise exception 'Some of these hours were returned for review. They must be resubmitted before they can be paid.' using errcode = 'P0001';
+    end if;
+    if v_rep.status in ('submitted', 'under_review') then
+      perform public.admin_review_report(v_rep.id, 'approve', p_note, null);
+    end if;
+    select * into v_rep from public.reports where id = v_rep.id;
+    v_due := coalesce(v_rep.approved_amount, v_rep.snapshot_estimated_amount, 0) - v_rep.amount_paid;
+    if v_due > 0 then
+      perform public.admin_record_payment(v_rep.id, round(v_due, 2), p_paid_on, p_method, p_reference, p_note, gen_random_uuid());
+      v_paid := v_paid + round(v_due, 2);
+    else
+      perform private.recompute_report_payment(v_rep.id);
+    end if;
+  end loop;
+
+  perform set_config('app.audit_action', 'admin_mark_submission_paid', true);
+  update public.hour_submissions
+     set status = 'paid', paid_at = now(), paid_by = v_admin, paid_on = p_paid_on,
+         payment_method = nullif(btrim(p_method), ''), payment_reference = nullif(btrim(p_reference), ''),
+         amount_paid = (select coalesce(sum(r.amount_paid), 0) from public.reports r where r.submission_id = v_sub.id),
+         paid_request_id = p_request_id
+   where id = v_sub.id
+  returning * into v_sub;
+  return to_jsonb(v_sub) || jsonb_build_object('paid_now', v_paid);
+end;
+$$;
+
+create or replace function public.admin_dashboard()
+returns jsonb
+language plpgsql stable security definer set search_path = ''
+as $$
+declare v_admin uuid := private.require_admin(); v_cs public.company_settings := private.settings();
+begin
+  return jsonb_build_object(
+    'server_now', now(),
+    'active_employees', (select count(*) from public.employee_access where status = 'active'),
+    'clocked_in', (select coalesce(jsonb_agg(jsonb_build_object(
+                                     'shift_id', s.id, 'employee_id', e.id, 'name', coalesce(e.display_name, e.full_name),
+                                     'since', s.clock_in_at, 'worksite', w.label, 'method', s.clock_in_method,
+                                     'pending_since', s.clock_out_pending_at,
+                                     'lunch_started_at', (select b.started_at from public.shift_breaks b where b.shift_id = s.id and b.ended_at is null),
+                                     'break_count', (select count(*) from public.shift_breaks b where b.shift_id = s.id),
+                                     'break_minutes_closed', coalesce((select round(sum(extract(epoch from (b.ended_at - b.started_at))) / 60.0, 2)
+                                                                       from public.shift_breaks b where b.shift_id = s.id and b.ended_at is not null), 0))
+                                   order by s.clock_in_at), '[]'::jsonb)
+                   from public.shifts s join public.employees e on e.id = s.employee_id join public.worksites w on w.id = s.worksite_id
+                   where s.clock_out_at is null),
+    'submissions_waiting', (select count(*) from public.hour_submissions where status = 'submitted'),
+    'submissions_waiting_amount', (select coalesce(sum(estimated_amount), 0) from public.hour_submissions where status = 'submitted'),
+    'reports_pending', (select count(*) from public.reports where status in ('submitted', 'under_review')),
+    'reports_flagged', (select count(*) from public.reports where flagged),
+    'reports_changed', (select count(*) from public.reports where changed_after_submission),
+    'corrections_open', (select count(*) from public.correction_requests where status = 'open'),
+    'access_requests', (select count(*) from public.access_requests where status = 'pending'),
+    'shifts_needing_review', (select count(*) from public.shifts where needs_review),
+    'outstanding_amount', (select coalesce(sum(greatest(approved_amount - amount_paid, 0)), 0) from public.reports where status = 'approved'),
+    'unpaid_reports', (select count(*) from public.reports where status = 'approved' and payment_status <> 'paid'),
+    'hours_today', (select coalesce(sum(net_minutes), 0) from public.shifts
+                    where clock_out_at is not null and (clock_in_at at time zone v_cs.time_zone)::date = (now() at time zone v_cs.time_zone)::date),
+    'missing_rates', (select count(*) from public.employee_access a where a.status = 'active'
+                      and not exists (select 1 from public.wage_rates w where w.employee_id = a.employee_id))
+  );
+end;
+$$;
+
+-- ---------------------------------------------------------------------
+-- 7. Backups: include the new tables; backups requested by the app
+-- ---------------------------------------------------------------------
+create or replace function private.backup_tables()
+returns text[]
+language sql immutable set search_path = ''
+as $$
+  select array['employees', 'employee_access', 'employee_google_accounts', 'employee_preferences', 'access_requests',
+               'company_settings', 'worksites', 'work_groups', 'wage_rates', 'shifts', 'shift_breaks', 'hour_submissions',
+               'reports', 'report_snapshots', 'correction_requests', 'shift_revisions', 'payments', 'notes', 'export_log',
+               'restore_runs', 'audit_log'];
+$$;
+
+create or replace function public.svc_backup_begin(p_trigger text, p_cron_token text default null, p_requested_by uuid default null)
+returns jsonb
+language plpgsql volatile security definer set search_path = ''
+as $$
+declare
+  v_cfg  private.backup_config;
+  v_cs   public.company_settings := private.settings();
+  v_last public.backup_runs;
+  v_id   uuid;
+  v_ver  bigint := private.data_version();
+begin
+  select * into v_cfg from private.backup_config where id;
+  if p_trigger in ('auto_change', 'scheduled') then
+    if p_cron_token is null or p_cron_token is distinct from v_cfg.cron_token then
+      raise exception 'Invalid scheduler token' using errcode = '42501';
+    end if;
+    if not v_cs.backups_enabled then return jsonb_build_object('skip', 'Automatic backups are turned off'); end if;
+  elsif p_trigger = 'app_change' then
+    if p_requested_by is null then raise exception 'Requester required' using errcode = '22023'; end if;
+    if not v_cs.backups_enabled then return jsonb_build_object('skip', 'Automatic backups are turned off'); end if;
+  elsif p_trigger = 'manual' then
+    if p_requested_by is null then raise exception 'Requester required' using errcode = '22023'; end if;
+  else
+    raise exception 'Invalid trigger' using errcode = '22023';
+  end if;
+  if v_cfg.drive_refresh_token is null then
+    return jsonb_build_object('skip', 'Google Drive is not connected');
+  end if;
+  update public.backup_runs set status = 'failed', finished_at = now(), error = 'Timed out'
+   where status = 'running' and started_at < now() - interval '15 minutes';
+  select * into v_last from public.backup_runs where status = 'succeeded' order by finished_at desc limit 1;
+  if p_trigger in ('auto_change', 'app_change') and v_last.id is not null and v_last.data_version >= v_ver then
+    return jsonb_build_object('skip', 'No changes since the last backup');
+  end if;
+  if p_trigger = 'scheduled' and v_last.id is not null and v_last.finished_at > now() - interval '20 hours' then
+    return jsonb_build_object('skip', 'A backup succeeded recently');
+  end if;
+  begin
+    insert into public.backup_runs (trigger, status, requested_by, data_version, attempts)
+    values (p_trigger, 'running', p_requested_by, v_ver, 0)
+    returning id into v_id;
+  exception when unique_violation then
+    return jsonb_build_object('skip', 'Another backup is already running');
+  end;
+  return jsonb_build_object('run_id', v_id, 'data_version', v_ver);
+end;
+$$;
+
+-- Restore: same as before, but also accepts backups made before update 3.
+create or replace function private.restore_backup(p_text text, p_apply boolean, p_admin uuid, p_source text, p_file_name text)
+returns jsonb
+language plpgsql volatile security definer set search_path = ''
+as $$
+declare
+  v_doc     jsonb;
+  v_data    jsonb;
+  v_tbl     text;
+  v_pk      text;
+  v_cols    text;
+  v_row     jsonb;
+  v_exist   jsonb;
+  v_summary jsonb := '{}'::jsonb;
+  v_tsum    jsonb;
+  v_pending jsonb;
+  v_next    jsonb;
+  v_pass    integer;
+  v_added   integer;
+  v_present integer;
+  v_diff    integer;
+  v_errors  jsonb;
+  v_result  jsonb;
+  v_seq     text;
+  v_col     text;
+  v_match   boolean;
+  v_other   uuid;
+  v_acc     public.employee_google_accounts;
+  v_caller  uuid := private.current_employee_id();
+begin
+  begin
+    v_doc := p_text::jsonb;
+  exception when others then
+    raise exception 'The file is not valid JSON (it may be damaged or incomplete).' using errcode = '22P02';
+  end;
+  if jsonb_typeof(v_doc) <> 'object' or v_doc ->> 'format' is distinct from 'employee-time-tracker-backup' then
+    raise exception 'This is not an Employee Time Tracker backup file.' using errcode = '22023';
+  end if;
+  if (v_doc ->> 'format_version')::int is distinct from 1 then
+    raise exception 'Unsupported backup format version: %', v_doc ->> 'format_version' using errcode = '22023';
+  end if;
+  v_data := v_doc -> 'data';
+  if jsonb_typeof(v_data) <> 'object' then
+    raise exception 'Backup has no data section.' using errcode = '22023';
+  end if;
+  if encode(sha256(convert_to(v_data::text, 'UTF8')), 'hex') is distinct from v_doc ->> 'checksum_sha256' then
+    raise exception 'Checksum mismatch: the backup file is corrupted or was edited. Nothing was restored.' using errcode = '22023';
+  end if;
+  foreach v_tbl in array private.backup_tables() loop
+    if jsonb_typeof(v_data -> v_tbl) is distinct from 'array' then
+      if v_tbl in ('shift_breaks', 'hour_submissions') then
+        v_data := v_data || jsonb_build_object(v_tbl, '[]'::jsonb);   -- older backups (before update 3)
+      else
+        raise exception 'Backup is missing the "%" table.', v_tbl using errcode = '22023';
+      end if;
+    end if;
+  end loop;
+
+  perform set_config('app.audit_action', 'restore_backup', true);
+  begin  -- everything below is undone at the end when this is only a validation (dry run)
+    foreach v_tbl in array private.backup_tables() loop
+      select a.attname into v_pk
+      from pg_catalog.pg_index i
+      join pg_catalog.pg_attribute a on a.attrelid = i.indrelid and a.attnum = i.indkey[0]
+      where i.indrelid = ('public.' || v_tbl)::regclass and i.indisprimary;
+      select string_agg(format('%I', a.attname), ', ' order by a.attnum) into v_cols
+      from pg_catalog.pg_attribute a
+      where a.attrelid = ('public.' || v_tbl)::regclass and a.attnum > 0 and not a.attisdropped and a.attgenerated = '';
+
+      v_added := 0; v_present := 0; v_diff := 0; v_errors := '[]'::jsonb; v_pending := '[]'::jsonb;
+      -- counters (friendly employee numbers, history ids) move past both current and file values
+      if v_tbl in ('employees', 'audit_log', 'export_log', 'shift_revisions') then
+        v_col := case when v_tbl = 'employees' then 'employee_number' else 'id' end;
+        v_seq := pg_catalog.pg_get_serial_sequence('public.' || v_tbl, v_col);
+        execute format('select pg_catalog.setval(%L, greatest((select coalesce(max(%I), 0) from public.%I), '
+                       '(select coalesce(max((x ->> %L)::bigint), 0) from jsonb_array_elements($1) x), 1))',
+                       v_seq, v_col, v_tbl, v_col) using v_data -> v_tbl;
+      end if;
+      -- classify rows
+      for v_row in select value from jsonb_array_elements(v_data -> v_tbl) loop
+        if v_row -> v_pk is null then
+          v_errors := v_errors || jsonb_build_array('row without ' || v_pk);
+          continue;
+        end if;
+
+        -- history tables: matched by content, because their numeric ids are per-project counters
+        v_match := null;
+        if v_tbl = 'audit_log' then
+          v_match := exists (select 1 from public.audit_log a
+                             where a.occurred_at = (v_row ->> 'occurred_at')::timestamptz and a.action = v_row ->> 'action'
+                               and a.target_table = v_row ->> 'target_table' and a.operation = v_row ->> 'operation'
+                               and a.target_id is not distinct from v_row ->> 'target_id');
+        elsif v_tbl = 'export_log' then
+          v_match := exists (select 1 from public.export_log a
+                             where a.exported_at = (v_row ->> 'exported_at')::timestamptz and a.export_type = v_row ->> 'export_type'
+                               and a.exported_by is not distinct from (v_row ->> 'exported_by')::uuid);
+        elsif v_tbl = 'shift_revisions' then
+          v_match := exists (select 1 from public.shift_revisions a
+                             where a.shift_id = (v_row ->> 'shift_id')::uuid and a.revision_no = (v_row ->> 'revision_no')::int);
+        end if;
+        if v_match is not null then
+          if v_match then
+            v_present := v_present + 1;
+            continue;
+          end if;
+          execute format('select exists (select 1 from public.%I where id = $1)', v_tbl) into v_match using (v_row ->> 'id')::bigint;
+          if v_match then
+            v_row := jsonb_set(v_row, '{id}', to_jsonb(nextval(pg_catalog.pg_get_serial_sequence('public.' || v_tbl, 'id'))));
+          end if;
+          v_pending := v_pending || jsonb_build_array(v_row);
+          continue;
+        end if;
+
+        execute format('select to_jsonb(t) from public.%I t where %I::text = $1', v_tbl, v_pk) into v_exist using v_row ->> v_pk;
+        if v_exist is not null then
+          v_present := v_present + 1;
+          if exists (select 1 from jsonb_each(v_row) r where (v_exist -> r.key) is distinct from r.value) then
+            v_diff := v_diff + 1;   -- current version kept
+          end if;
+        elsif v_tbl = 'company_settings' then
+          v_present := v_present + 1;
+        else
+          if v_tbl = 'employees' then
+            -- friendly number already used by someone else in this project
+            select id into v_other from public.employees where employee_number = (v_row ->> 'employee_number')::int;
+            if v_other is not null then
+              if v_other = v_caller and private.is_placeholder(v_caller) then
+                update public.employees
+                   set employee_number = nextval(pg_catalog.pg_get_serial_sequence('public.employees', 'employee_number'))
+                 where id = v_caller;
+              else
+                v_row := jsonb_set(v_row, '{employee_number}',
+                                   to_jsonb(nextval(pg_catalog.pg_get_serial_sequence('public.employees', 'employee_number'))));
+              end if;
+            end if;
+          end if;
+          if v_tbl = 'employee_google_accounts' and v_row ->> 'revoked_at' is null then
+            select * into v_acc from public.employee_google_accounts
+            where google_email = v_row ->> 'google_email' and revoked_at is null;
+            if found and v_acc.employee_id <> (v_row ->> 'employee_id')::uuid then
+              -- Disaster recovery: the admin who set up this new project signs in with the SAME Google
+              -- account as their restored record -> hand the login over to the restored record.
+              if v_acc.employee_id = v_caller and private.is_placeholder(v_caller)
+                 and (v_acc.google_subject is null or v_row ->> 'google_subject' is null
+                      or v_acc.google_subject = v_row ->> 'google_subject') then
+                update public.employee_google_accounts set revoked_at = now() where id = v_acc.id;
+                update public.employee_access
+                   set status = 'disabled', status_changed_at = now(),
+                       status_reason = 'Setup placeholder replaced by the restored employee record'
+                 where employee_id = v_caller;
+                v_row := jsonb_set(v_row, '{auth_user_id}', to_jsonb(v_acc.auth_user_id));
+                if v_row ->> 'google_subject' is null then
+                  v_row := jsonb_set(v_row, '{google_subject}', to_jsonb(v_acc.google_subject));
+                end if;
+              else
+                v_errors := v_errors || jsonb_build_array('Google account ' || (v_row ->> 'google_email')
+                                                          || ' already belongs to a current employee; not restored');
+                continue;
+              end if;
+            end if;
+          end if;
+          if v_tbl = 'employee_google_accounts' and v_row ->> 'auth_user_id' is not null
+             and not exists (select 1 from auth.users u where u.id = (v_row ->> 'auth_user_id')::uuid) then
+            v_row := jsonb_set(v_row, '{auth_user_id}', 'null'::jsonb);   -- person re-links on next Google sign-in
+          end if;
+          if v_tbl = 'access_requests'
+             and not exists (select 1 from auth.users u where u.id = (v_row ->> 'auth_user_id')::uuid) then
+            v_errors := v_errors || jsonb_build_array('access request skipped: login no longer exists');
+            continue;
+          end if;
+          v_pending := v_pending || jsonb_build_array(v_row);
+        end if;
+      end loop;
+      -- insert missing rows (a few passes so rows that depend on each other can land)
+      for v_pass in 1..3 loop
+        exit when jsonb_array_length(v_pending) = 0;
+        v_next := '[]'::jsonb;
+        for v_row in select value from jsonb_array_elements(v_pending) loop
+          begin
+            execute format('insert into public.%I (%s) overriding system value select %s from jsonb_populate_record(null::public.%I, $1)',
+                           v_tbl, v_cols, v_cols, v_tbl) using v_row;
+            v_added := v_added + 1;
+          exception when others then
+            v_next := v_next || jsonb_build_array(v_row || jsonb_build_object('__error', sqlerrm));
+          end;
+        end loop;
+        v_pending := (select coalesce(jsonb_agg(value - '__error'), '[]'::jsonb) from jsonb_array_elements(v_next));
+        if v_pass = 3 then
+          v_errors := v_errors || (select coalesce(jsonb_agg(value ->> '__error'), '[]'::jsonb)
+                                   from (select value from jsonb_array_elements(v_next) limit 5) x);
+        end if;
+      end loop;
+      v_tsum := jsonb_build_object('in_file', jsonb_array_length(v_data -> v_tbl), 'already_present', v_present,
+                                   'present_but_different_kept_current', v_diff, 'added', v_added,
+                                   'not_restored', jsonb_array_length(v_data -> v_tbl) - v_present - v_added,
+                                   'errors', v_errors);
+      v_summary := v_summary || jsonb_build_object(v_tbl, v_tsum);
+    end loop;
+
+    -- keep identity counters ahead of restored ids
+    for v_tbl, v_col in
+      select c.relname, a.attname from pg_catalog.pg_attribute a
+      join pg_catalog.pg_class c on c.oid = a.attrelid
+      join pg_catalog.pg_namespace n on n.oid = c.relnamespace
+      where n.nspname = 'public' and a.attidentity <> '' and c.relname = any (private.backup_tables())
+    loop
+      v_seq := pg_catalog.pg_get_serial_sequence('public.' || v_tbl, v_col);
+      execute format('select pg_catalog.setval(%L, greatest((select coalesce(max(%I), 0) from public.%I), 1))', v_seq, v_col, v_tbl);
+    end loop;
+
+    v_result := jsonb_build_object('mode', case when p_apply then 'restored' else 'validation_only' end,
+                                   'backup_created_at', v_doc ->> 'created_at',
+                                   'backup_data_version', v_doc ->> 'data_version',
+                                   'checksum_ok', true, 'tables', v_summary);
+    if not p_apply then
+      raise exception using errcode = 'P0901', message = 'dry run';
+    end if;
+    insert into public.restore_runs (restored_by, source, file_name, checksum, summary)
+    values (p_admin, p_source, left(p_file_name, 200), v_doc ->> 'checksum_sha256', v_result);
+  exception when sqlstate 'P0901' then
+    null;   -- validation only: all changes rolled back, summary kept
+  end;
+  return v_result;
+end;
+$$;
+
+-- ---------------------------------------------------------------------
+-- 8. Function permissions (new functions only; replaced ones keep theirs)
+-- ---------------------------------------------------------------------
+revoke all on function
+  private.break_minutes(uuid, timestamptz), private.finish_clock_out(uuid, integer, uuid),
+  public.start_lunch(uuid), public.end_lunch(uuid), public.begin_clock_out(), public.cancel_clock_out(),
+  public.submit_hours(uuid, text), public.admin_clock_out(uuid, integer, text, uuid),
+  public.admin_mark_submission_paid(uuid, date, text, text, text, uuid)
+  from public, anon, authenticated;
+grant execute on function
+  public.start_lunch(uuid), public.end_lunch(uuid), public.begin_clock_out(), public.cancel_clock_out(),
+  public.submit_hours(uuid, text), public.admin_clock_out(uuid, integer, text, uuid),
+  public.admin_mark_submission_paid(uuid, date, text, text, text, uuid)
+  to authenticated;
+
+commit;
+</script>
 <script type="text/plain" id="sql-admin">
 -- =====================================================================
 --  ONE-TIME: create the first administrator (you).
@@ -3720,6 +4692,7 @@ select jobid, jobname, schedule, active from cron.job where jobname = 'timeclock
 //    POST  {action:"list"}                 admin: list backup files
 //    POST  {action:"download", file_id}    admin: fetch one backup (for restore)
 //    POST  {action:"disconnect"}           admin: forget the Drive connection
+//    POST  {action:"changed"}              any signed-in employee: back up right after a change
 //    POST  {trigger:"auto_change"|"scheduled"} + x-cron-token header: scheduler
 //
 //  Deploy with "Verify JWT" turned OFF (Google's redirect carries no Supabase
@@ -3784,6 +4757,15 @@ async function rpc(fn, args = {}, userJwt = null) {
   try { body = text ? JSON.parse(text) : null; } catch { body = text; }
   if (!r.ok) throw new HttpError(r.status === 401 ? 401 : 502, (body && body.message) || `Database error ${r.status}`);
   return body;
+}
+
+async function requireMember(req) {
+  const jwt = (req.headers.get('authorization') || '').replace(/^Bearer\s+/i, '');
+  if (!jwt || jwt === cfg().publishableKey) throw new HttpError(401, 'Sign in required');
+  let me;
+  try { me = await rpc('resolve_my_access', {}, jwt); } catch { throw new HttpError(401, 'Your session has expired. Sign in again.'); }
+  if (!me || me.state !== 'active') throw new HttpError(403, 'Access denied');
+  return me;
 }
 
 async function requireAdmin(req) {
@@ -4079,6 +5061,10 @@ async function handle(req) {
       const me = await requireAdmin(req);
       return json(200, await runBackup('manual', { requestedBy: me.employee_id }));
     }
+    case 'changed': {
+      const me = await requireMember(req);
+      return json(200, await runBackup('app_change', { requestedBy: me.employee_id }));
+    }
     case 'list': return listFiles(req);
     case 'download': return download(req, body);
     case 'disconnect': return disconnect(req);
@@ -4179,6 +5165,7 @@ const ICONS = {
   shield: 'M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z',
   database: 'M4 6c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3zM4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6',
   audit: 'M9 4h6M8 4H6a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-2M8 11l2 2 4-4M8 17h8',
+  summary: 'M4 5h16v14H4zM4 10h16M9 10v9M13 14h4M13 17h2',
   more: 'M5 12h.01M12 12h.01M19 12h.01',
   plus: 'M12 5v14M5 12h14',
   close: 'M6 6l12 12M18 6L6 18',
@@ -4341,7 +5328,23 @@ async function db(promise) {
   }
   return count !== undefined && count !== null && data === null ? count : data;
 }
-const rpc = (fn, args = {}) => db(S.sb.rpc(fn, args));
+// Calls that only read data; every other call changes data and triggers a backup.
+const READ_ONLY = new Set(['resolve_my_access', 'get_my_dashboard', 'admin_dashboard', 'admin_backup_status', 'admin_security_report',
+  'daily_hours', 'pay_periods', 'admin_export_backup', 'admin_validate_backup', 'log_export']);
+async function rpc(fn, args = {}) {
+  const r = await db(S.sb.rpc(fn, args));
+  if (!READ_ONLY.has(fn)) backupSoon();
+  return r;
+}
+// Back up to Google Drive right after a change (quietly; the server skips it when Drive isn't connected
+// or nothing changed, and never runs two backups at once).
+let backupTimer = null;
+function backupSoon() {
+  clearTimeout(backupTimer);
+  backupTimer = setTimeout(() => {
+    try { S.sb.functions.invoke('drive-backup', { body: { action: 'changed' } }).catch(() => {}); } catch { /* offline */ }
+  }, 1500);
+}
 async function handleExpired() {
   try { await S.sb.auth.signOut({ scope: 'local' }); } catch { /* ignore */ }
   renderSignIn('Your session expired. Please sign in again.', 'warn');
@@ -4572,13 +5575,13 @@ const NAV_EMPLOYEE = [
   ['earnings', 'Earnings & payments', 'wallet'], ['settings', 'Settings', 'settings'],
 ];
 const NAV_ADMIN = [
-  ['admin', 'Admin dashboard', 'dashboard'], ['admin/employees', 'Employees', 'users'],
+  ['admin', 'Admin dashboard', 'dashboard'], ['admin/summary', 'Summary', 'summary'], ['admin/employees', 'Employees', 'users'],
   ['admin/hours', 'All work hours', 'hours'], ['admin/groups', 'Work groups & worksites', 'map'],
   ['admin/reports', 'Submitted reports', 'report'], ['admin/pay', 'Pay rates & payments', 'wallet'],
   ['admin/notes', 'Employee notes', 'note'], ['admin/data', 'Data & backups', 'database'],
   ['admin/audit', 'Audit log', 'audit'], ['admin/settings', 'Admin settings', 'settings'],
 ];
-const TABBAR = { employee: ['home', 'clock', 'hours', 'notes'], admin: ['admin', 'admin/employees', 'admin/hours', 'admin/reports'] };
+const TABBAR = { employee: ['home', 'clock', 'hours', 'notes'], admin: ['admin', 'admin/summary', 'admin/employees', 'admin/hours'] };
 const PAGES = {};   // filled in by the page modules: name -> async () => Node[]
 
 function currentRoute() {
@@ -4608,6 +5611,8 @@ async function route() {
     const nodes = await PAGES[r]();
     if (currentRoute() !== r && location.hash) return;   // user moved on
     put(page, ...[nodes].flat());
+    const g = document.getElementById('top-greet');
+    if (g) g.textContent = `${greeting()}, ${myName()}`;   // the page may have just reloaded the profile
     page.focus({ preventScroll: true });
   } catch (e) {
     put(page, h('div', { class: 'notice bad' }, friendlyError(e)),
@@ -4633,7 +5638,7 @@ function renderShell(active) {
     h('div', { class: 'side-foot' }, switcher,
       h('div', { class: 'who' }, h('div', { class: 'avatar sm' }, initials(p.display_name || p.full_name)),
         h('div', { class: 'who-text' }, h('div', { class: 'strong ellipsis' }, p.display_name || p.full_name || ''),
-          h('div', { class: 'muted small ellipsis', title: p.email }, p.email || ''))),
+          h('div', { class: 'muted small ellipsis' }, p.role === 'admin' ? 'Administrator' : 'Employee'))),
       h('button', { class: 'nav-link', onclick: signOut }, icon('logout'), h('span', {}, 'Sign out'))));
 
   const tabs = TABBAR[S.mode].map((r) => nav.find((n) => n[0] === r));
@@ -4644,12 +5649,12 @@ function renderShell(active) {
       icon('more', 22), h('span', {}, 'More')));
 
   const topbar = h('header', { class: 'topbar' }, brandMark(30), h('div', { class: 'brand-name ellipsis' }, company),
-    h('span', { class: 'spacer' }),
-    h('span', { class: 'top-email ellipsis', title: p.email }, p.email || ''));
+    h('span', { class: 'top-greet ellipsis', id: 'top-greet' }, `${greeting()}, ${myName()}`));
 
   setScreen(h('div', { class: 'shell' }, sidebar,
     h('div', { class: 'main' }, topbar, pendingBanner(), h('main', { id: 'page', class: 'page', tabindex: '-1' })),
     tabbar));
+  every(60000, () => { const g = document.getElementById('top-greet'); if (g) g.textContent = `${greeting()}, ${myName()}`; });
 }
 const shortLabel = (l) => ({ 'Clock in / out': 'Clock', 'My hours': 'Hours', 'Admin dashboard': 'Dashboard',
   'All work hours': 'Hours', 'Submitted reports': 'Reports' }[l] || l);
@@ -4706,6 +5711,10 @@ function openSheet({ title, wide = false, onClose = null } = {}) {
   dlg.showModal();
   return { dlg, body, close: () => dlg.close(), setTitle: (t) => { dlg.querySelector('h2').textContent = t; } };
 }
+
+// Refresh the page after a sheet closes — unless the sheet handed over to another sheet
+// (refreshing would close that new sheet straight away).
+function reroute() { if (!document.querySelector('dialog.sheet[open]')) route(); }
 
 // fields: [{name,label,type,value,options,required,placeholder,max,help,min,step}]
 function formSheet({ title, text, fields = [], confirm = 'Save', danger = false, wide = false, notice = null }) {
@@ -4786,16 +5795,31 @@ function kv(rows) {
 //  Employee pages
 // =====================================================================
 
-// ---------------------------------------------------------------- live clock
-function liveClock({ size = 'big' } = {}) {
-  const active = !!S.dash?.active_shift;
+// ---------------------------------------------------------------- live clock dial
+// Work time so far (display only — the official times are set by the database).
+function workedMs(a, at = nowServer()) {
+  const end = a.clock_out_pending_at ? new Date(a.clock_out_pending_at) : at;
+  let ms = end - new Date(a.clock_in_at) - Number(a.break_minutes_closed || 0) * 60000;
+  if (a.lunch_started_at) ms -= Math.max(0, end - new Date(a.lunch_started_at));
+  return Math.max(0, ms);
+}
+function shiftState(a) {
+  if (!a) return 'off';
+  if (a.clock_out_pending_at) return 'pending';
+  if (a.lunch_started_at) return 'lunch';
+  return 'on';
+}
+
+function clockDial() {
+  const a = S.dash?.active_shift;
+  const state = shiftState(a);
   const ticks = [];
-  const ring = s('svg', { viewBox: '0 0 200 200', class: 'clock-ring', 'aria-hidden': 'true' });
+  const ring = s('svg', { viewBox: '0 0 200 200', class: 'dial-ring', 'aria-hidden': 'true' });
   for (let i = 0; i < 60; i++) {
-    const a = (i / 60) * Math.PI * 2 - Math.PI / 2;
+    const ang = (i / 60) * Math.PI * 2 - Math.PI / 2;
     const major = i % 5 === 0;
-    const r1 = major ? 80 : 84, r2 = 92;
-    const line = s('line', { x1: 100 + r1 * Math.cos(a), y1: 100 + r1 * Math.sin(a), x2: 100 + r2 * Math.cos(a), y2: 100 + r2 * Math.sin(a),
+    const r1 = major ? 90 : 93, r2 = 98.5;
+    const line = s('line', { x1: 100 + r1 * Math.cos(ang), y1: 100 + r1 * Math.sin(ang), x2: 100 + r2 * Math.cos(ang), y2: 100 + r2 * Math.sin(ang),
       class: `tick${major ? ' major' : ''}` });
     ticks.push(line); ring.appendChild(line);
   }
@@ -4803,10 +5827,29 @@ function liveClock({ size = 'big' } = {}) {
   const sec = h('span', { class: 'clock-sec' });
   const ampm = h('span', { class: 'clock-ampm' });
   const dateEl = h('div', { class: 'clock-date' });
-  const time = h('div', { class: 'clock-time', role: 'timer', 'aria-live': 'off' }, hm, sec, ampm);
-  const el = h('div', { class: `clock ${size}${active ? ' on' : ''}` }, ring,
-    h('div', { class: 'clock-face' }, time, dateEl,
-      h('div', { class: 'clock-tz' }, tz().replace(/_/g, ' '))));
+  const statusText = { off: 'Not clocked in', on: 'On the clock', lunch: 'On lunch', pending: 'Clocking out' }[state];
+  const status = h('div', { class: `dial-status ${state}` }, state === 'on' ? h('span', { class: 'pulse', 'aria-hidden': 'true' }) : null, statusText);
+  const worked = h('div', { class: 'dial-elapsed', role: 'timer', 'aria-label': 'Time worked' });
+  const lunchLine = h('div', { class: 'dial-sub' });
+
+  const btn = (cls, label, fn) => h('button', { class: `dial-btn ${cls}`, type: 'button', onclick: fn }, label);
+  let actions;
+  if (state === 'off') actions = [btn('in', 'Clock in', startClockIn)];
+  else if (state === 'pending') actions = [btn('out', 'Finish clock-out', startClockOut), btn('small', 'Keep working', cancelClockOut)];
+  else if (state === 'lunch') actions = [btn('out', 'Clock out', startClockOut), btn('small lunch-on', 'End lunch', endLunch)];
+  else actions = [btn('out', 'Clock out', startClockOut), btn('small', 'Start lunch', startLunch)];
+
+  const face = h('div', { class: 'dial-face' },
+    status,
+    h('div', { class: 'clock-time', 'aria-live': 'off' }, hm, sec, ampm),
+    dateEl,
+    a ? h('div', { class: 'dial-site' }, a.worksite_label) : null,
+    a && a.clock_in_method === 'manual' ? h('div', { class: 'dial-tag' }, METHOD_LABEL.manual) : null,
+    a ? worked : null,
+    a ? lunchLine : null,
+    h('div', { class: 'dial-actions' }, actions));
+  const el = h('div', { class: `dial ${state}` }, ring, face);
+
   let lastSec = -1;
   const update = () => {
     const now = nowServer();
@@ -4816,10 +5859,15 @@ function liveClock({ size = 'big' } = {}) {
     sec.textContent = S.prefs?.show_seconds === false ? '' : `:${p.second}`;
     ampm.textContent = use24h() ? '' : (hr < 12 ? 'AM' : 'PM');
     dateEl.textContent = `${p.weekday}, ${fmtYMD(`${p.year}-${p.month}-${p.day}`)}`;
+    if (a) {
+      worked.textContent = elapsedText(workedMs(a, now));
+      if (state === 'lunch') lunchLine.textContent = `Lunch ${elapsedText(now - new Date(a.lunch_started_at))}`;
+      else if (state === 'pending') lunchLine.textContent = `Stopped at ${fmtTime(a.clock_out_pending_at)}`;
+      else lunchLine.textContent = Number(a.break_minutes_closed) ? `Lunch taken ${Math.round(a.break_minutes_closed)} min` : `In at ${fmtTime(a.clock_in_at)}`;
+    }
     const sNow = Number(p.second);
     if (sNow !== lastSec) {
-      ticks.forEach((t, i) => t.classList.toggle('lit', i <= sNow));
-      ticks.forEach((t, i) => t.classList.toggle('now', i === sNow));
+      ticks.forEach((t, i) => { t.classList.toggle('lit', i <= sNow); t.classList.toggle('now', i === sNow); });
       lastSec = sNow;
     }
   };
@@ -4829,7 +5877,7 @@ function liveClock({ size = 'big' } = {}) {
   return el;
 }
 
-// elapsed counter for the active shift (display only; official times come from the database)
+// elapsed counter (display only; official times come from the database)
 function elapsedNode(since, cls = 'elapsed') {
   const el = h('span', { class: cls });
   const u = () => { el.textContent = elapsedText(nowServer() - new Date(since)); };
@@ -4837,53 +5885,57 @@ function elapsedNode(since, cls = 'elapsed') {
   return el;
 }
 
+function clockHero() {
+  return h('section', { class: `hero ${shiftState(S.dash.active_shift)}` }, clockDial());
+}
+
 // ---------------------------------------------------------------- home
 PAGES.home = async () => {
   await refreshDash();
   const d = S.dash, a = d.active_shift;
   const liveToday = h('span');
-  const updToday = () => {
-    const extra = a ? (nowServer() - new Date(a.clock_in_at)) / 60000 : 0;
-    liveToday.textContent = minutesText(Number(d.today_net_minutes) + extra);
-  };
+  const updToday = () => { liveToday.textContent = minutesText(Number(d.today_net_minutes) + (a ? workedMs(a) / 60000 : 0)); };
   updToday(); every(30000, updToday);
-  const g = d.current_group;
-  const groupLive = g ? h('span', {}, minutesText(Number(g.net_minutes) + (a && a.work_group_id === g.work_group_id ? (nowServer() - new Date(a.clock_in_at)) / 60000 : 0))) : '—';
-
+  const oh = d.open_hours || {};
+  const ls = d.last_submission;
   return [
-    h('div', { class: 'greet' }, h('h1', {}, `${greeting()}, ${myName()}!`),
-      h('p', { class: 'muted' }, a ? 'You’re on the clock.' : 'You’re not clocked in.')),
     clockHero(),
     h('div', { class: 'stat-grid' },
-      stat('Today’s net hours', liveToday, a ? 'includes the running shift' : 'completed shifts'),
-      stat('Current work group', groupLive, g ? `${g.worksite_label}, cycle ${g.cycle_number}` : 'No open group'),
-      stat('Estimated earnings', g && d.current_rate ? money(g.estimated_amount) : '—',
-        d.current_rate ? `estimate for this group at ${money(d.current_rate)}/h` : 'no wage rate set yet'),
-      stat('Report status', d.reports.latest_status ? STATUS_LABEL[d.reports.latest_status] : 'None yet',
-        d.open_groups ? `${d.open_groups} group${d.open_groups > 1 ? 's' : ''} not submitted` : 'nothing waiting'),
-      stat('Payment status', d.reports.latest_payment_status ? STATUS_LABEL[d.reports.latest_payment_status] : '—',
-        Number(d.payments.outstanding) > 0 ? `${money(d.payments.outstanding)} approved, not yet paid`
-          : d.payments.last_payment ? `last paid ${money(d.payments.last_payment.amount)} on ${fmtYMD(d.payments.last_payment.paid_on)}` : 'no payments yet')),
-    d.reports.returned ? h('div', { class: 'notice warn' }, `${d.reports.returned} report${d.reports.returned > 1 ? 's were' : ' was'} returned for review. `,
+      stat('Today’s hours', liveToday, a ? 'includes the running shift' : 'completed shifts'),
+      h('a', { class: 'stat link', href: '#/hours' }, h('div', { class: 'stat-label' }, 'Not submitted yet'),
+        h('div', { class: 'stat-value' }, minutesText(oh.net_minutes || 0)),
+        h('div', { class: 'stat-sub' }, Number(oh.shift_count) ? `${oh.shift_count} shift${oh.shift_count > 1 ? 's' : ''} — tap to submit` : 'nothing to submit')),
+      stat('Estimated earnings', d.current_rate ? money(oh.estimated_amount || 0) : '—',
+        d.current_rate ? `unsubmitted hours at ${money(d.current_rate)}/h` : 'no wage rate set yet'),
+      stat('Submitted hours', ls ? (ls.status === 'paid' ? 'Paid' : 'Waiting for payment') : 'None yet',
+        ls ? (ls.status === 'paid' ? `paid ${ls.paid_on ? fmtYMD(ls.paid_on) : ''}` : `submitted ${fmtYMD(localYMD(ls.submitted_at))}`) : 'submit from My hours')),
+    d.reports.returned ? h('div', { class: 'notice warn' }, `Some of your submitted hours were returned for review. `,
       h('a', { href: '#/reports' }, 'See what to fix')) : null,
   ];
 };
 
-function clockHero() {
-  const d = S.dash, a = d.active_shift;
-  const status = a
-    ? h('div', { class: 'hero-status on' },
-        h('div', { class: 'hero-status-row' }, h('span', { class: 'pulse', 'aria-hidden': 'true' }), h('span', {}, 'On the clock')),
-        h('div', { class: 'hero-site' }, a.worksite_label),
-        h('div', { class: 'hero-meta' }, `Clocked in at ${fmtTime(a.clock_in_at)}`, h('span', { class: 'sep' }), METHOD_LABEL[a.clock_in_method]),
-        h('div', { class: 'hero-elapsed' }, elapsedNode(a.clock_in_at)))
-    : h('div', { class: 'hero-status' },
-        h('div', { class: 'hero-status-row' }, h('span', {}, 'Not clocked in')),
-        h('div', { class: 'hero-meta' }, 'Tap below when you start work.'));
-  const btn = a
-    ? h('button', { class: 'btn-clock out', onclick: startClockOut }, icon('clock', 24), 'Clock out')
-    : h('button', { class: 'btn-clock in', onclick: startClockIn }, icon('clock', 24), 'Clock in');
-  return h('section', { class: `hero${a ? ' on' : ''}` }, liveClock(), status, btn);
+// ---------------------------------------------------------------- lunch punches
+async function startLunch(e) {
+  const b = e?.currentTarget; if (b) b.disabled = true;
+  try {
+    const r = await rpc('start_lunch', { p_request_id: uuid() });
+    toast(`Lunch started at ${fmtTime(r.lunch_started_at)}`);
+  } catch (err) { toast(`Lunch not started. ${friendlyError(err)}`, 'bad'); }
+  route();
+}
+async function endLunch(e) {
+  const b = e?.currentTarget; if (b) b.disabled = true;
+  try {
+    await rpc('end_lunch', { p_request_id: uuid() });
+    toast('Lunch ended — back on the clock');
+  } catch (err) { toast(`Lunch not ended. ${friendlyError(err)}`, 'bad'); }
+  route();
+}
+async function cancelClockOut(e) {
+  const b = e?.currentTarget; if (b) b.disabled = true;
+  try { await rpc('cancel_clock_out'); toast('Clock-out cancelled — your timer is running again'); }
+  catch (err) { toast(friendlyError(err), 'bad'); }
+  route();
 }
 
 PAGES.clock = async () => {
@@ -4903,7 +5955,7 @@ PAGES.clock = async () => {
 // ---------------------------------------------------------------- clock-in flow
 async function startClockIn() {
   const cs = S.settings;
-  const sheet = openSheet({ title: 'Clock in', onClose: () => route() });
+  const sheet = openSheet({ title: 'Clock in', onClose: reroute });
   let saving = false;
   const reqId = uuid();
   const show = (...n) => put(sheet.body, ...n);
@@ -5033,84 +6085,109 @@ async function reverseGeocode(lat, lon) {
 }
 
 // ---------------------------------------------------------------- clock-out flow
-function startClockOut() {
-  const a = S.dash.active_shift;
-  if (!a) return;
+// Lunch question used by the employee and the admin clock-out. Calls done(minutes).
+function lunchQuestion(show, header, workedMin, done, back) {
   const cs = S.settings;
-  const reqId = uuid();
-  const sheet = openSheet({ title: 'Clock out', onClose: () => route() });
-  const show = (...n) => put(sheet.body, ...n);
-  const elapsedMin = () => (nowServer() - new Date(a.clock_in_at)) / 60000;
-  let lunch = 0, saving = false;
-
-  const summary = () => h('div', { class: 'out-summary' },
-    h('div', {}, h('div', { class: 'muted small' }, 'Worksite'), h('div', { class: 'strong' }, a.worksite_label)),
-    h('div', {}, h('div', { class: 'muted small' }, 'Clocked in'), h('div', { class: 'strong' }, fmtTime(a.clock_in_at))),
-    h('div', {}, h('div', { class: 'muted small' }, 'Elapsed'), h('div', { class: 'strong' }, elapsedNode(a.clock_in_at, 'mono'))));
-
+  let lunch = 0;
   function ask() {
-    show(summary(),
+    show(header(),
       h('h3', { class: 'question' }, 'Did you take a lunch break today?'),
       h('div', { class: 'yes-no' },
-        h('button', { class: 'btn btn-lg', onclick: () => { lunch = Math.min(cs.default_lunch_minutes, cs.max_lunch_minutes); lunchStep(); } }, 'Yes'),
-        h('button', { class: 'btn btn-lg', onclick: () => { lunch = 0; confirmStep(); } }, 'No')));
+        h('button', { class: 'btn btn-lg', type: 'button', onclick: () => { lunch = Math.min(cs.default_lunch_minutes, cs.max_lunch_minutes); minutes(); } }, 'Yes'),
+        h('button', { class: 'btn btn-lg', type: 'button', onclick: () => done(0) }, 'No')),
+      back ? h('button', { class: 'btn btn-ghost btn-block', type: 'button', onclick: back.fn }, back.label) : null);
   }
-
-  function lunchStep() {
+  function minutes() {
     const input = h('input', { type: 'number', inputmode: 'numeric', min: 0, max: cs.max_lunch_minutes, step: 1, value: lunch, class: 'lunch-input', 'aria-label': 'Lunch minutes' });
     const err = h('div', { class: 'field-error', role: 'alert' });
-    const set = (v) => { lunch = Math.max(0, Math.min(cs.max_lunch_minutes, Math.round(Number(v) || 0))); input.value = lunch; validate(); };
+    const next = h('button', { class: 'btn btn-primary btn-block btn-lg', type: 'button', onclick: () => { if (validate()) done(lunch); } }, 'Continue');
     const validate = () => {
       let m = '';
       if (lunch > cs.max_lunch_minutes) m = `Lunch can be at most ${cs.max_lunch_minutes} minutes.`;
-      else if (lunch > 0 && lunch >= elapsedMin()) m = 'Lunch can’t be as long as the whole shift.';
+      else if (lunch > 0 && lunch >= workedMin) m = 'Lunch can’t be as long as the whole shift.';
       err.textContent = m; next.disabled = !!m; return !m;
     };
+    const set = (v) => { lunch = Math.max(0, Math.min(cs.max_lunch_minutes, Math.round(Number(v) || 0))); input.value = lunch; validate(); };
     input.addEventListener('input', () => { lunch = Math.round(Number(input.value) || 0); validate(); });
-    const next = h('button', { class: 'btn btn-primary btn-block btn-lg', onclick: () => { if (validate()) confirmStep(); } }, 'Continue');
-    show(summary(), h('h3', { class: 'question' }, 'How long was your lunch?'),
+    show(header(), h('h3', { class: 'question' }, 'How long was your lunch?'),
       h('div', { class: 'stepper' },
-        h('button', { class: 'btn step', 'aria-label': 'Five minutes less', onclick: () => set(lunch - 5) }, '−5'),
+        h('button', { class: 'btn step', type: 'button', 'aria-label': 'Five minutes less', onclick: () => set(lunch - 5) }, '−5'),
         h('div', { class: 'stepper-mid' }, input, h('span', { class: 'muted' }, 'minutes')),
-        h('button', { class: 'btn step', 'aria-label': 'Five minutes more', onclick: () => set(lunch + 5) }, '+5')),
-      err, next, h('button', { class: 'btn btn-ghost btn-block', onclick: ask }, 'Back'));
+        h('button', { class: 'btn step', type: 'button', 'aria-label': 'Five minutes more', onclick: () => set(lunch + 5) }, '+5')),
+      err, next, h('button', { class: 'btn btn-ghost btn-block', type: 'button', onclick: ask }, 'Back'));
     validate();
   }
+  return ask;
+}
 
-  function confirmStep() {
-    const net = h('span');
-    const u = () => { net.textContent = minutesText(Math.max(0, elapsedMin() - lunch)); };
-    u(); every(1000, u);
-    show(summary(),
-      kv([['Lunch deduction', lunch ? `${lunch} minutes` : 'None'], ['Net hours (so far)', net]]),
-      h('button', { class: 'btn btn-out btn-block btn-lg', onclick: save }, 'Clock out now'),
-      h('button', { class: 'btn btn-ghost btn-block', onclick: ask }, 'Change lunch answer'));
+// Step 1: the timer stops the moment "Clock out" is tapped (time fixed by the server).
+// Step 2: confirm lunch (asked only if lunch wasn't punched) and confirm the clock-out.
+async function startClockOut() {
+  const reqId = uuid();
+  const sheet = openSheet({ title: 'Clock out', onClose: reroute });
+  const show = (...n) => put(sheet.body, ...n);
+  show(h('div', { class: 'center-block' }, h('div', { class: 'spinner' }), h('p', {}, 'Stopping your timer…')));
+  let a;
+  try {
+    a = await rpc('begin_clock_out');
+  } catch (e) {
+    return show(h('div', { class: 'notice bad' }, `Your timer wasn’t stopped. ${friendlyError(e)}`),
+      h('div', { class: 'sheet-actions' }, h('button', { class: 'btn', onclick: () => sheet.close() }, 'Close'),
+        h('button', { class: 'btn btn-primary', onclick: () => { sheet.close(); startClockOut(); } }, 'Try again')));
+  }
+  const outAt = new Date(a.clock_out_pending_at);
+  const grossMin = (outAt - new Date(a.clock_in_at)) / 60000;
+  const punched = Number(a.break_count) > 0;
+  const punchedMin = Math.round(Number(a.break_minutes_closed || 0) + (a.lunch_started_at ? Math.max(0, outAt - new Date(a.lunch_started_at)) / 60000 : 0));
+  let saving = false;
+
+  const header = () => h('div', { class: 'out-summary' },
+    h('div', {}, h('div', { class: 'muted small' }, 'Worksite'), h('div', { class: 'strong' }, a.worksite_label)),
+    h('div', {}, h('div', { class: 'muted small' }, 'In'), h('div', { class: 'strong' }, fmtTime(a.clock_in_at))),
+    h('div', {}, h('div', { class: 'muted small' }, 'Out'), h('div', { class: 'strong' }, fmtTime(a.clock_out_pending_at))));
+  const keepWorking = h('button', { class: 'btn btn-ghost btn-block', type: 'button', onclick: async (e) => {
+    e.currentTarget.disabled = true;
+    try { await rpc('cancel_clock_out'); toast('Clock-out cancelled — your timer is running again'); sheet.close(); }
+    catch (err) { toast(friendlyError(err), 'bad'); e.currentTarget.disabled = false; }
+  } }, 'Keep working (cancel clock-out)');
+
+  function confirm(lunch) {
+    const lunchMin = punched ? punchedMin : lunch;
+    const net = Math.max(0, grossMin - lunchMin);
+    show(header(),
+      h('div', { class: 'stopped-note' }, `Your timer stopped at ${fmtTime(a.clock_out_pending_at)}.`),
+      kv([['Total time', minutesText(grossMin)],
+          ['Lunch', punched ? `${lunchMin} min (from your lunch punches)` : (lunchMin ? `${lunchMin} min` : 'None')],
+          ['Net hours', h('strong', {}, `${minutesText(net)} (${hoursDec(net)} h)`)]]),
+      h('button', { class: 'btn btn-out btn-block btn-lg', type: 'button', onclick: () => save(punched ? null : lunch) }, 'Confirm clock-out'),
+      punched ? null : h('button', { class: 'btn btn-block', type: 'button', onclick: ask }, 'Change lunch answer'),
+      keepWorking);
   }
 
-  async function save() {
+  async function save(lunch) {
     if (saving) return;
     saving = true;
     show(h('div', { class: 'center-block' }, h('div', { class: 'spinner' }), h('p', {}, 'Saving your clock-out…')));
     try {
       const r = await safeRequest('clock_out', 'clock_out', { p_request_id: reqId, p_lunch_minutes: lunch });
       await refreshDash();
-      const g = S.dash.current_group;
       show(h('div', { class: 'done-block' }, h('div', { class: 'done-icon' }, icon('check', 34)),
         h('h3', {}, `Clocked out at ${fmtTime(r.clock_out_at)}`),
         kv([['Worksite', r.worksite_label], ['In', fmtDateTime(r.clock_in_at)], ['Out', fmtDateTime(r.clock_out_at)],
             ['Total time', minutesText(r.gross_minutes)], ['Lunch', `${r.lunch_minutes} min`],
-            ['Net hours', h('strong', {}, `${minutesText(r.net_minutes)} (${hoursDec(r.net_minutes)} h)`)],
-            g && g.work_group_id === r.work_group_id ? ['Group total so far', minutesText(g.net_minutes)] : null]),
+            ['Net hours', h('strong', {}, `${minutesText(r.net_minutes)} (${hoursDec(r.net_minutes)} h)`)]]),
         r.needs_review ? h('div', { class: 'notice warn' }, `${r.review_reason}. Your administrator will review it.`) : null,
         h('button', { class: 'btn btn-primary btn-block', onclick: () => sheet.close() }, 'Done')));
     } catch (e) {
       saving = false;
       show(h('div', { class: 'notice bad' }, `Not clocked out. ${friendlyError(e)}`),
         h('div', { class: 'sheet-actions' }, h('button', { class: 'btn', onclick: () => sheet.close() }, 'Close'),
-          h('button', { class: 'btn btn-primary', onclick: save }, 'Try again')));
+          h('button', { class: 'btn btn-primary', onclick: () => save(lunch) }, 'Try again')));
     }
   }
-  ask();
+
+  const ask = lunchQuestion(show, header, grossMin, (m) => confirm(m), null);
+  if (punched) confirm(null); else ask();
 }
 
 // ---------------------------------------------------------------- shared rows / filters
@@ -5163,7 +6240,7 @@ function revisionCard(r) {
   const o = r.old_values || {}, n = r.new_values || {};
   const line = (label, a, b, f) => (JSON.stringify(a) !== JSON.stringify(b) ? h('div', {}, `${label}: `, h('s', { class: 'muted' }, a === undefined || a === null ? '—' : f(a)), ' → ', h('strong', {}, b === null ? '—' : f(b))) : null);
   return h('div', { class: 'rev' },
-    h('div', { class: 'row-sub' }, `${fmtDateTime(r.changed_at)}, ${{ admin_edit: 'edited', admin_add: 'added', worksite_change: 'moved to another worksite' }[r.change_kind]} by an administrator`),
+    h('div', { class: 'row-sub' }, `${fmtDateTime(r.changed_at)}, ${{ admin_edit: 'edited', admin_add: 'added', worksite_change: 'moved to another worksite', admin_clock_out: 'clocked out' }[r.change_kind]} by an administrator`),
     r.change_kind === 'admin_add' ? h('div', {}, `Added shift ${fmtDateTime(n.clock_in_at)} – ${fmtTime(n.clock_out_at)}`) : [
       line('Clock-in', o.clock_in_at, n.clock_in_at, fmtDateTime), line('Clock-out', o.clock_out_at, n.clock_out_at, fmtDateTime),
       line('Lunch', o.lunch_minutes, n.lunch_minutes, (x) => `${x} min`), line('Net', o.net_minutes, n.net_minutes, minutesText),
@@ -5268,10 +6345,125 @@ PAGES.hours = async () => {
         : empty('No shifts in this range.'));
   }
   load();
-  return [pageHead('My hours', 'Your official shift records. Tap a shift for details or to request a correction.',
-    h('button', { class: 'btn', onclick: () => exportMyTimesheet(st) }, icon('download'), 'Export')),
-  h('div', { class: 'filters' }, rangeControl(st, presets, load), siteSel, statusSel), out];
+  await refreshDash();
+  const oh = S.dash.open_hours || {};
+  const ls = S.dash.last_submission;
+  return [
+    pageHead('My hours'),
+    h('section', { class: 'submit-bar' },
+      h('div', { class: 'submit-bar-info' },
+        h('div', { class: 'muted small' }, 'Not submitted yet'),
+        h('div', { class: 'submit-bar-num' }, minutesText(oh.net_minutes || 0)),
+        h('div', { class: 'muted small' }, Number(oh.shift_count)
+          ? `${oh.shift_count} shift${oh.shift_count > 1 ? 's' : ''}, ${fmtYMD(oh.first_date)}${oh.last_date !== oh.first_date ? ` – ${fmtYMD(oh.last_date)}` : ''}`
+          : (ls ? `Last submitted ${fmtYMD(localYMD(ls.submitted_at))}${ls.status === 'paid' ? ', paid' : ''}` : 'Nothing to submit'))),
+      h('div', { class: 'submit-bar-actions' },
+        h('button', { class: 'btn btn-primary', onclick: submitHoursSheet }, icon('report'), 'Submit hours'),
+        h('button', { class: 'btn', onclick: () => submittedListSheet() }, 'View submitted hours'))),
+    h('div', { class: 'row gap-sm wrap-row' }, h('span', { class: 'spacer' }),
+      h('button', { class: 'btn btn-sm btn-ghost', onclick: () => exportMyTimesheet(st) }, icon('download'), 'Export')),
+    h('div', { class: 'filters' }, rangeControl(st, presets, load), siteSel, statusSel), out];
 };
+
+// ---------------------------------------------------------------- submit hours (all unsubmitted hours at once)
+async function submitHoursSheet() {
+  await refreshDash();
+  const sheet = openSheet({ title: 'Submit hours', wide: true, onClose: reroute });
+  if (S.dash.active_shift) {
+    return add(sheet.body, h('div', { class: 'notice warn' }, 'You’re still on the clock. Clock out first, then submit your hours.'),
+      h('div', { class: 'sheet-actions' }, h('button', { class: 'btn btn-primary', onclick: () => sheet.close() }, 'OK')));
+  }
+  const rows = await db(S.sb.from('shift_details').select('*').eq('employee_id', S.me.employee_id).eq('is_active', false)
+    .in('group_status', ['open', 'returned']).order('clock_in_at'));
+  if (!rows.length) {
+    return add(sheet.body, empty('You have no new hours to submit.'),
+      h('div', { class: 'sheet-actions' }, h('button', { class: 'btn btn-primary', onclick: () => sheet.close() }, 'OK')));
+  }
+  const total = rows.reduce((x, r) => x + Number(r.net_minutes), 0);
+  const lunch = rows.reduce((x, r) => x + Number(r.lunch_minutes), 0);
+  const est = rows.reduce((x, r) => x + Number(r.estimated_amount || 0), 0);
+  const note = h('textarea', { rows: 3, maxlength: 2000, placeholder: 'Anything your administrator should know (optional)' });
+  const agree = h('input', { type: 'checkbox' });
+  const reqId = uuid();
+  const btn = h('button', { class: 'btn btn-primary btn-lg', onclick: async () => {
+    if (!agree.checked) return toast('Tick the box to confirm the hours are correct.', 'bad');
+    btn.disabled = true;
+    try {
+      const r = await safeRequest('submit', 'submit_hours', { p_request_id: reqId, p_note: note.value || null });
+      put(sheet.body, h('div', { class: 'done-block' }, h('div', { class: 'done-icon' }, icon('check', 34)),
+        h('h3', {}, 'Hours submitted'),
+        h('p', { class: 'muted' }, `${minutesText(r.net_minutes)} sent to your administrator. Your next shift starts new hours.`),
+        h('button', { class: 'btn btn-primary btn-block', onclick: () => sheet.close() }, 'Done')));
+    } catch (e) { btn.disabled = false; toast(`Not submitted. ${friendlyError(e)}`, 'bad'); }
+  } }, 'Submit hours');
+  add(sheet.body,
+    kv([['Employee', S.dash.profile.full_name], ['Dates', `${fmtYMD(rows[0].work_date)} – ${fmtYMD(rows[rows.length - 1].work_date)}`],
+        ['Worksites', [...new Set(rows.map((r) => r.worksite_label))].join('; ')]]),
+    shiftsTable(rows.map((r) => ({ work_date: r.work_date, clock_in_at: r.clock_in_at, clock_out_at: r.clock_out_at, lunch_minutes: r.lunch_minutes,
+      net_minutes: r.net_minutes, hourly_rate: r.hourly_rate, estimated_amount: r.estimated_amount, worksite: r.worksite_label })),
+      { lunch_minutes: lunch, net_minutes: total, estimated_amount: est }),
+    h('p', { class: 'muted small' }, 'Estimated earnings are net hours × your hourly rate. They are not an official payroll result.'),
+    h('label', { class: 'field' }, h('span', {}, 'Note for your administrator'), note),
+    h('label', { class: 'check-row' }, agree, h('span', {}, 'I confirm these hours are correct. After submitting, I can’t edit them — only request corrections.')),
+    h('div', { class: 'sheet-actions' }, h('button', { class: 'btn', onclick: () => sheet.close() }, 'Cancel'), btn));
+}
+
+// Compact table of shifts (used for submit preview and submitted-hours details).
+function shiftsTable(list, totals) {
+  return h('div', { class: 'table-wrap' }, h('table', { class: 'data' },
+    h('thead', {}, h('tr', {}, h('th', {}, 'Date'), h('th', {}, 'In – out'), h('th', {}, 'Lunch'), h('th', {}, 'Net'), h('th', { class: 'hide-sm' }, 'Rate'), h('th', {}, 'Est.'))),
+    h('tbody', {}, list.map((r) => h('tr', {},
+      h('td', { class: 'nowrap' }, shortDay(r.work_date), r.worksite ? h('div', { class: 'muted small cell-sub' }, r.worksite) : null),
+      h('td', { class: 'inout' }, h('span', {}, `${fmtTime(r.clock_in_at)} –`), ' ', h('span', {}, fmtTime(r.clock_out_at))),
+      h('td', {}, `${r.lunch_minutes}m`), h('td', { class: 'nowrap' }, minutesText(r.net_minutes)),
+      h('td', { class: 'hide-sm' }, r.hourly_rate ? money(r.hourly_rate) : '—'),
+      h('td', {}, r.estimated_amount !== null && r.estimated_amount !== undefined ? money(r.estimated_amount) : '—')))),
+    totals ? h('tfoot', {}, h('tr', {}, h('td', { colspan: 2 }, 'Total'), h('td', {}, `${totals.lunch_minutes}m`),
+      h('td', { class: 'nowrap' }, minutesText(totals.net_minutes)), h('td', { class: 'hide-sm' }, ''), h('td', {}, money(totals.estimated_amount)))) : null));
+}
+
+function submissionStatus(x) {
+  if (x.status === 'paid') return chip('paid', x.paid_on ? `Paid ${fmtYMD(x.paid_on)}` : 'Paid');
+  if (x.has_returned) return chip('returned', 'Returned for review');
+  if (Number(x.amount_paid_total) > 0) return chip('partially_paid', 'Partly paid');
+  return chip('submitted', 'Waiting for payment');
+}
+
+async function submittedListSheet() {
+  const sheet = openSheet({ title: 'Submitted hours', wide: true });
+  const subs = await db(S.sb.from('submission_details').select('*').eq('employee_id', S.me.employee_id).order('submitted_at', { ascending: false }));
+  add(sheet.body, subs.length ? h('div', { class: 'list' }, subs.map((x) => h('button', { class: 'row-item', type: 'button', onclick: () => submissionSheet(x.id, false) },
+    h('div', { class: 'row-main' }, h('div', { class: 'row-title' }, `${fmtYMD(x.period_start)} – ${fmtYMD(x.period_end)}`),
+      h('div', { class: 'row-sub' }, `Submitted ${fmtDateTime(x.submitted_at)}, ${x.shift_count} shift${x.shift_count === 1 ? '' : 's'}`)),
+    h('div', { class: 'row-side' }, h('div', { class: 'row-value' }, minutesText(x.net_minutes)), h('div', { class: 'row-tags' }, submissionStatus(x))))))
+    : empty('You haven’t submitted any hours yet.'));
+}
+
+// Details of one "Submit hours" batch: every shift exactly as submitted.
+async function submissionSheet(id, admin) {
+  const sheet = openSheet({ title: 'Submitted hours', wide: true, onClose: admin ? reroute : null });
+  const [x] = await db(S.sb.from('submission_details').select('*').eq('id', id));
+  const reps = await db(S.sb.from('reports').select('id,submission_count,status,approved_amount,amount_paid,payment_status').eq('submission_id', id));
+  const snaps = reps.length ? await db(S.sb.from('report_snapshots').select('report_id,version,snapshot').in('report_id', reps.map((r) => r.id))) : [];
+  const latest = reps.map((r) => snaps.find((sn) => sn.report_id === r.id && sn.version === r.submission_count)).filter(Boolean);
+  const list = latest.flatMap((sn) => sn.snapshot.shifts.map((sh) => ({ ...sh, worksite: sn.snapshot.worksite.label })))
+    .sort((p, q) => String(p.clock_in_at).localeCompare(String(q.clock_in_at)));
+  const totals = { lunch_minutes: list.reduce((t, r) => t + Number(r.lunch_minutes), 0), net_minutes: list.reduce((t, r) => t + Number(r.net_minutes), 0),
+    estimated_amount: list.reduce((t, r) => t + Number(r.estimated_amount || 0), 0) };
+  add(sheet.body,
+    h('div', { class: 'row gap-sm wrap-row' }, submissionStatus(x)),
+    kv([admin ? ['Employee', `${x.full_name} (#${x.employee_number})`] : null,
+        ['Dates', `${fmtYMD(x.period_start)} – ${fmtYMD(x.period_end)}`],
+        ['Submitted', fmtDateTime(x.submitted_at)], ['Worksites', x.worksites],
+        ['Net hours', `${minutesText(x.net_minutes)} (${hoursDec(x.net_minutes)} h)`],
+        x.status === 'paid' ? ['Amount paid', money(x.amount_paid ?? x.amount_paid_total)] : ['Estimated amount', money(x.estimated_amount)],
+        x.status === 'paid' && x.payment_method ? ['Paid by', [x.payment_method, x.payment_reference].filter(Boolean).join(', ')] : null,
+        x.employee_note ? ['Note', x.employee_note] : null]),
+    x.changed_after_submission ? h('div', { class: 'notice warn' }, `Hours were corrected after submitting. Current total: ${minutesText(x.current_net_minutes)}.`) : null,
+    shiftsTable(list, totals),
+    admin && x.status !== 'paid' ? h('div', { class: 'sheet-actions' },
+      h('button', { class: 'btn btn-primary', onclick: () => { sheet.close(); markPaidSheet(x); } }, 'Mark as paid')) : null);
+}
 
 // ---------------------------------------------------------------- work groups
 PAGES.groups = async () => {
@@ -5313,7 +6505,7 @@ async function groupShiftsSheet(g, admin = false) {
 }
 
 async function submitSheet(g) {
-  const sheet = openSheet({ title: g.status === 'returned' ? 'Resubmit report' : 'Submit report', wide: true, onClose: () => route() });
+  const sheet = openSheet({ title: g.status === 'returned' ? 'Resubmit report' : 'Submit report', wide: true, onClose: reroute });
   const rows = await db(S.sb.from('shift_details').select('*').eq('work_group_id', g.work_group_id).eq('is_active', false).order('clock_in_at'));
   const notes = await db(S.sb.from('notes').select('title,body').eq('employee_id', S.me.employee_id).eq('work_group_id', g.work_group_id).eq('archived', false));
   const rates = [...new Set(rows.map((r) => r.hourly_rate).filter(Boolean))];
@@ -5372,7 +6564,7 @@ function reportRow(r, admin) {
 }
 
 async function reportSheet(id, admin) {
-  const sheet = openSheet({ title: 'Report', wide: true, onClose: () => route() });
+  const sheet = openSheet({ title: 'Report', wide: true, onClose: reroute });
   const [r] = await db(S.sb.from('report_details').select('*').eq('id', id));
   const snaps = await db(S.sb.from('report_snapshots').select('*').eq('report_id', id).order('version', { ascending: false }));
   const pays = await db(S.sb.from('payments').select('*').eq('report_id', id).order('paid_on'));
@@ -5439,12 +6631,8 @@ PAGES.notes = async () => {
   await reload();
   PAGES.notes._reload = reload;
   return [pageHead('Notes', null, h('button', { class: 'btn btn-primary', onclick: () => noteEditor(null, reload) }, icon('plus'), 'New note')),
-    notesDisclosure(),
     h('div', { class: 'filters' }, search, sortSel, showSel), list];
 };
-
-const notesDisclosure = () => h('div', { class: 'notice info disclosure' }, icon('shield'),
-  h('span', {}, 'Notes may be viewed by authorized administrators of your company. Other employees can’t see them.'));
 
 function noteCard(n) {
   return h('button', { class: `note-card${n.archived ? ' archived' : ''}`, type: 'button', onclick: () => noteEditor(n, PAGES.notes._reload) },
@@ -5476,7 +6664,7 @@ async function noteEditor(n, reload) {
       p_note_date: date.value || null, p_shift_id: sh.value || null, p_work_group_id: grp.value || null, p_pinned: pin.checked, p_archived: arch.checked }), 'Note saved');
     if (r !== undefined) { sheet.close(); reload && reload(); }
   } }, 'Save note');
-  add(sheet.body, notesDisclosure(),
+  add(sheet.body,
     locked ? h('div', { class: 'notice warn' }, `Notes can be edited for ${days} days after they’re created (company policy). This one is now read-only.`) : null,
     h('label', { class: 'field' }, h('span', {}, 'Title'), title),
     h('label', { class: 'field' }, h('span', {}, 'Note'), body),
@@ -5496,7 +6684,7 @@ PAGES.earnings = async () => {
   const reps = await db(S.sb.from('report_details').select('*').eq('employee_id', S.me.employee_id).order('submitted_at', { ascending: false }));
   const pays = await db(S.sb.from('payments').select('*').eq('employee_id', S.me.employee_id).order('paid_on', { ascending: false }));
   const periodOut = h('div');
-  const ot = S.settings?.overtime_enabled;
+  const ot = false;   // overtime is never shown to employees
   async function loadPeriod() {
     const days = await rpc('daily_hours', { p_from: st.from, p_to: st.to, p_employee_id: S.me.employee_id });
     const sum = (k) => days.reduce((a, d) => a + Number(d[k] || 0), 0);
@@ -5546,16 +6734,26 @@ PAGES.settings = async () => {
     const r = await act(saveName, () => rpc('update_my_profile_v2', { p_display_name: dn.value, p_preferred_name: pn.value }), 'Name saved');
     if (r !== undefined) { await refreshDash(); route(); }
   } }, 'Save names');
-  const theme = h('select', {}, [['system', 'Match my phone'], ['light', 'Light'], ['dark', 'Dark']].map(([v, l]) => h('option', { value: v }, l)));
-  theme.value = pr.theme;
+  const themeSeg = h('div', { class: 'seg seg-wide', role: 'radiogroup', 'aria-label': 'Background' },
+    [['light', 'Light'], ['dark', 'Dark'], ['system', 'Match phone']].map(([v, l]) => h('button', {
+      type: 'button', role: 'radio', 'aria-checked': String(pr.theme === v), 'aria-selected': String(pr.theme === v),
+      onclick: async (e) => {
+        const prev = S.prefs.theme;
+        S.prefs = { ...S.prefs, theme: v }; applyPrefs();
+        themeSeg.querySelectorAll('button').forEach((b) => { const on = b === e.currentTarget; b.setAttribute('aria-checked', String(on)); b.setAttribute('aria-selected', String(on)); });
+        try {
+          await rpc('update_my_preferences', { p_theme: v, p_clock_format: S.prefs.clock_format, p_show_seconds: S.prefs.show_seconds, p_reduce_motion: S.prefs.reduce_motion });
+          toast(`${l} background saved`);
+        } catch (err) { S.prefs = { ...S.prefs, theme: prev }; applyPrefs(); toast(friendlyError(err), 'bad'); route(); }
+      } }, l)));
   const fmt = h('select', {}, [['company', `Company default (${cs.time_format === '24h' ? '24-hour' : '12-hour'})`], ['12h', '12-hour'], ['24h', '24-hour']].map(([v, l]) => h('option', { value: v }, l)));
   fmt.value = pr.clock_format;
   const secs = h('input', { type: 'checkbox' }); secs.checked = pr.show_seconds;
   const motion = h('input', { type: 'checkbox' }); motion.checked = pr.reduce_motion;
   const savePrefs = h('button', { class: 'btn btn-primary', onclick: async () => {
-    const r = await act(savePrefs, () => rpc('update_my_preferences', { p_theme: theme.value, p_clock_format: fmt.value, p_show_seconds: secs.checked, p_reduce_motion: motion.checked }), 'Preferences saved');
+    const r = await act(savePrefs, () => rpc('update_my_preferences', { p_theme: S.prefs.theme, p_clock_format: fmt.value, p_show_seconds: secs.checked, p_reduce_motion: motion.checked }), 'Preferences saved');
     if (r !== undefined) {
-      S.prefs = { ...S.prefs, theme: theme.value, clock_format: fmt.value, show_seconds: secs.checked, reduce_motion: motion.checked };
+      S.prefs = { ...S.prefs, clock_format: fmt.value, show_seconds: secs.checked, reduce_motion: motion.checked };
       applyPrefs();
       await refreshDash(); route();
     }
@@ -5563,8 +6761,22 @@ PAGES.settings = async () => {
   let permState = 'Unknown';
   try { permState = { granted: 'Allowed', denied: 'Blocked', prompt: 'Will ask when you clock in' }[(await navigator.permissions.query({ name: 'geolocation' })).state] || 'Unknown'; } catch { /* Safari */ }
 
+  let companyCard = null;
+  if (S.me.role === 'admin') {
+    const cn = h('input', { type: 'text', maxlength: 120, value: cs.company_name || '' });
+    const saveCo = h('button', { class: 'btn btn-primary', onclick: async () => {
+      if (!cn.value.trim()) return toast('Enter the company name.', 'bad');
+      const r = await act(saveCo, () => rpc('admin_update_settings', { p: { company_name: cn.value } }), 'Company name saved — everyone sees it now');
+      if (r !== undefined) { await refreshDash(); route(); }
+    } }, 'Save company name');
+    companyCard = card({}, cardHead('Company name', 'Shown at the top of the app for everyone. More options in Admin settings.'),
+      h('label', { class: 'field' }, h('span', {}, 'Company name'), cn), h('div', {}, saveCo));
+  }
+
   return [
     pageHead('Settings'),
+    card({}, cardHead('Background', 'Choose a light or dark look for the app'), themeSeg),
+    companyCard,
     h('div', { class: 'grid-2' },
       card({}, cardHead('Your name', 'How you appear in the app'),
         h('label', { class: 'field' }, h('span', {}, 'Display name'), dn),
@@ -5576,8 +6788,7 @@ PAGES.settings = async () => {
             p.job_title ? ['Job title', p.job_title] : null, ['Hourly rate', S.dash.current_rate ? `${money(S.dash.current_rate)}/h` : 'Not set']]),
         h('p', { class: 'muted small' }, 'Your role, approved email, status and wage rate can only be changed by an administrator.'))),
     h('div', { class: 'grid-2' },
-      card({}, cardHead('Display'),
-        h('label', { class: 'field' }, h('span', {}, 'Appearance'), theme),
+      card({}, cardHead('Clock display'),
         h('label', { class: 'field' }, h('span', {}, 'Clock'), fmt),
         h('label', { class: 'check-row' }, secs, h('span', {}, 'Show seconds on the clock')),
         h('label', { class: 'check-row' }, motion, h('span', {}, 'Reduce motion')),
@@ -5592,7 +6803,6 @@ PAGES.settings = async () => {
           ['What is saved', 'The street and town of the worksite, and your phone’s reported position and accuracy for that clock-in. Nothing else, and no tracking.'],
           ['Street lookup', 'Your position is sent to OpenStreetMap’s lookup service to find the street name.'],
           ['If you don’t share location', cs.location_mode === 'device_only' ? 'Your company requires location to clock in.' : 'You can choose a site from a list; it’s marked as manually selected (unverified).'],
-          ['Notes', 'Your notes can be read by authorized administrators. Other employees can’t see them.'],
           ['Record keeping', `Employment records are kept for at least ${cs.retention_years} years, including after you leave.`]])),
     card({}, cardHead('Export my records', 'Your own hours, reports, notes and payments'),
       h('div', { class: 'row gap-sm wrap-row' },
@@ -5630,21 +6840,30 @@ PAGES.admin = async () => {
   const tile = (label, value, href, tone = '') => h('a', { class: `stat link ${tone}`, href }, h('div', { class: 'stat-label' }, label), h('div', { class: 'stat-value' }, value));
   const last = b?.last_success;
   return [
-    h('div', { class: 'greet' }, h('h1', {}, `${greeting()}, ${myName()}!`), h('p', { class: 'muted' }, `${S.settings.company_name}, ${fmtYMD(todayYMD())}`)),
+    pageHead('Admin dashboard', `${S.settings.company_name}, ${fmtYMD(todayYMD())}`),
+    card({}, cardHead(`On the clock now (${d.clocked_in.length})`, 'Tap Clock out to end an employee’s shift from here'),
+      d.clocked_in.length ? h('div', { class: 'list' }, d.clocked_in.map((c) => {
+        const workedEl = h('span', { class: 'mono' });
+        const fake = { clock_in_at: c.since, clock_out_pending_at: c.pending_since, lunch_started_at: c.lunch_started_at, break_minutes_closed: c.break_minutes_closed };
+        const u = () => { workedEl.textContent = elapsedText(workedMs(fake)); };
+        u(); every(1000, u);
+        const state = c.pending_since ? 'Clocking out' : c.lunch_started_at ? `On lunch since ${fmtTime(c.lunch_started_at)}` : `In at ${fmtTime(c.since)}`;
+        return h('div', { class: 'row-item static on-clock-row' },
+          h('div', { class: 'row-main' }, h('div', { class: 'row-title' }, c.name),
+            h('div', { class: 'row-sub' }, `${c.worksite}${c.method === 'manual' ? ' (manual site)' : ''}`),
+            h('div', { class: 'row-sub' }, state)),
+          h('div', { class: 'row-side' }, h('div', { class: 'row-value' }, workedEl),
+            h('button', { class: 'btn btn-sm btn-out', onclick: () => adminClockOutSheet(c) }, 'Clock out')));
+      })) : empty('Nobody is clocked in.')),
     h('div', { class: 'stat-grid four' },
-      tile('On the clock now', String(d.clocked_in.length), '#/admin/hours'),
+      tile('Submitted hours to pay', d.submissions_waiting ? `${d.submissions_waiting} (${money(d.submissions_waiting_amount)})` : '0', '#/admin/summary', d.submissions_waiting ? 'attn' : ''),
       tile('Hours today (completed)', minutesText(d.hours_today), '#/admin/hours'),
-      tile('Reports to review', String(d.reports_pending), '#/admin/reports', d.reports_pending ? 'attn' : ''),
       tile('Open correction requests', String(d.corrections_open), '#/admin/hours', d.corrections_open ? 'attn' : ''),
       tile('Approved, not yet paid', money(d.outstanding_amount), '#/admin/pay', d.unpaid_reports ? 'attn' : ''),
       tile('Access requests', String(d.access_requests), '#/admin/employees', d.access_requests ? 'attn' : ''),
       tile('Shifts needing review', String(d.shifts_needing_review), '#/admin/hours', d.shifts_needing_review ? 'attn' : ''),
       tile('Active staff without a wage rate', String(d.missing_rates), '#/admin/pay', d.missing_rates ? 'attn' : '')),
     h('div', { class: 'grid-2' },
-      card({}, cardHead('On the clock now'),
-        d.clocked_in.length ? h('div', { class: 'list' }, d.clocked_in.map((c) => h('div', { class: 'row-item static' },
-          h('div', { class: 'row-main' }, h('div', { class: 'row-title' }, c.name), h('div', { class: 'row-sub' }, `${c.worksite}, since ${fmtTime(c.since)}${c.method === 'manual' ? ' (manual site)' : ''}`)),
-          h('div', { class: 'row-side' }, h('div', { class: 'row-value' }, elapsedNode(c.since, 'mono')))))) : empty('Nobody is clocked in.')),
       card({}, cardHead('Waiting for you', null, h('a', { class: 'btn btn-sm', href: '#/admin/reports' }, 'All reports')),
         pending.length || corr.length ? h('div', { class: 'list' },
           pending.map((r) => reportRow(r, true)),
@@ -5657,6 +6876,119 @@ PAGES.admin = async () => {
               ['Changes since last backup', String(b.pending_changes)]])),
   ];
 };
+
+// ---------------------------------------------------------------- employees
+// Admin ends an employee's shift (recorded in the shift history).
+async function adminClockOutSheet(c) {
+  const reqId = uuid();
+  const sheet = openSheet({ title: `Clock out ${c.name}`, onClose: reroute });
+  const show = (...n) => put(sheet.body, ...n);
+  const outAt = c.pending_since ? new Date(c.pending_since) : null;
+  const header = () => h('div', { class: 'out-summary' },
+    h('div', {}, h('div', { class: 'muted small' }, 'Worksite'), h('div', { class: 'strong' }, c.worksite)),
+    h('div', {}, h('div', { class: 'muted small' }, 'In'), h('div', { class: 'strong' }, fmtTime(c.since))),
+    h('div', {}, h('div', { class: 'muted small' }, 'Out'), h('div', { class: 'strong' }, outAt ? fmtTime(outAt) : 'now')));
+  const punched = Number(c.break_count) > 0;
+  const worked = ((outAt || nowServer()) - new Date(c.since)) / 60000;
+  const reason = h('textarea', { rows: 2, maxlength: 1000, placeholder: 'Reason (optional), e.g. forgot to clock out' });
+  async function save(lunch) {
+    show(h('div', { class: 'center-block' }, h('div', { class: 'spinner' }), h('p', {}, 'Clocking out…')));
+    try {
+      const r = await rpc('admin_clock_out', { p_shift_id: c.shift_id, p_lunch_minutes: lunch, p_reason: reason.value || null, p_request_id: reqId });
+      show(h('div', { class: 'done-block' }, h('div', { class: 'done-icon' }, icon('check', 34)),
+        h('h3', {}, `${c.name} clocked out at ${fmtTime(r.clock_out_at)}`),
+        kv([['Total time', minutesText(r.gross_minutes)], ['Lunch', `${r.lunch_minutes} min`], ['Net hours', minutesText(r.net_minutes)]]),
+        h('p', { class: 'muted small' }, 'Saved in the shift history with your name.'),
+        h('button', { class: 'btn btn-primary btn-block', onclick: () => sheet.close() }, 'Done')));
+    } catch (e) {
+      show(h('div', { class: 'notice bad' }, `Not clocked out. ${friendlyError(e)}`),
+        h('div', { class: 'sheet-actions' }, h('button', { class: 'btn', onclick: () => sheet.close() }, 'Close')));
+    }
+  }
+  function confirm(lunch) {
+    show(header(),
+      kv([['Lunch', punched ? 'Punched by the employee (used automatically)' : `${lunch} min`]]),
+      h('label', { class: 'field' }, h('span', {}, 'Reason'), reason),
+      h('button', { class: 'btn btn-out btn-block btn-lg', onclick: () => save(punched ? null : lunch) }, 'Confirm clock-out'),
+      punched ? null : h('button', { class: 'btn btn-block', onclick: ask }, 'Change lunch'));
+  }
+  const ask = lunchQuestion(show, header, worked, (m) => confirm(m), null);
+  if (punched) confirm(null); else ask();
+}
+
+// ---------------------------------------------------------------- summary: submitted hours and payment
+PAGES['admin/summary'] = async () => {
+  const emps = await employeeList();
+  const st = { status: 'submitted', employee: '' };
+  const seg = h('div', { class: 'seg', role: 'tablist' });
+  const empSel = h('select', { 'aria-label': 'Employee' }, empOptions(emps));
+  const totals = h('div');
+  const out = h('div', { class: 'list' });
+  const load = async () => {
+    seg.querySelectorAll('button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.v === st.status)));
+    put(out, h('div', { class: 'spinner' }));
+    let q = S.sb.from('submission_details').select('*');
+    if (st.status) q = q.eq('status', st.status);
+    if (st.employee) q = q.eq('employee_id', st.employee);
+    const subs = await db(q.order('submitted_at', { ascending: st.status === 'submitted' }).limit(500));
+    const due = subs.filter((x) => x.status !== 'paid').reduce((t, x) => t + Number(x.current_estimated_amount) - Number(x.amount_paid_total), 0);
+    const mins = subs.reduce((t, x) => t + Number(x.net_minutes), 0);
+    put(totals, h('div', { class: 'stat-grid three' },
+      stat(st.status === 'paid' ? 'Paid batches' : st.status === 'submitted' ? 'Waiting for payment' : 'Submitted batches', String(subs.length)),
+      stat('Hours', minutesText(mins), `${hoursDec(mins)} h`),
+      st.status !== 'paid' ? stat('To pay (estimate)', money(due)) : stat('Paid', money(subs.reduce((t, x) => t + Number(x.amount_paid ?? x.amount_paid_total), 0)))));
+    put(out, ...(subs.length ? subs.map(summaryCard) : [empty(st.status === 'submitted' ? 'No submitted hours are waiting for payment.' : 'Nothing here yet.')]));
+  };
+  [['submitted', 'Waiting for payment'], ['paid', 'Paid'], ['', 'All']].forEach(([v, l]) =>
+    seg.append(h('button', { role: 'tab', 'data-v': v, onclick: () => { st.status = v; load(); } }, l)));
+  empSel.addEventListener('change', () => { st.employee = empSel.value; load(); });
+  load();
+  return [pageHead('Summary', 'Hours your employees submitted. Mark them as paid once you’ve paid them.'),
+    h('div', { class: 'filters' }, seg, empSel), totals, out];
+};
+
+function summaryCard(x) {
+  const toPay = Math.max(0, Number(x.current_estimated_amount) - Number(x.amount_paid_total));
+  return h('div', { class: 'emp' },
+    h('div', { class: 'emp-top' }, h('div', { class: 'avatar' }, initials(x.display_name)),
+      h('div', { class: 'emp-main' }, h('div', { class: 'row-title' }, x.display_name),
+        h('div', { class: 'row-sub' }, `${fmtYMD(x.period_start)} – ${fmtYMD(x.period_end)}, ${x.shift_count} shift${x.shift_count === 1 ? '' : 's'}`),
+        h('div', { class: 'row-sub' }, x.worksites || '')),
+      h('div', { class: 'emp-side' }, h('div', { class: 'row-value' }, minutesText(x.net_minutes)),
+        h('div', { class: 'small strong' }, x.status === 'paid' ? money(x.amount_paid ?? x.amount_paid_total) : (x.missing_rate ? 'No rate' : money(toPay))))),
+    h('div', { class: 'row gap-sm wrap-row' }, submissionStatus(x),
+      x.missing_rate && x.status !== 'paid' ? h('span', { class: 'tag warn' }, 'Wage rate missing') : null,
+      x.changed_after_submission ? h('span', { class: 'tag warn' }, 'Corrected') : null,
+      h('span', { class: 'muted small' }, `submitted ${fmtDateTime(x.submitted_at)}`)),
+    h('div', { class: 'row gap-sm wrap-row' },
+      h('button', { class: 'btn btn-sm', onclick: () => submissionSheet(x.id, true) }, 'View hours'),
+      x.status !== 'paid' ? h('button', { class: 'btn btn-sm btn-primary', onclick: () => markPaidSheet(x) }, 'Mark as paid') : null));
+}
+
+async function markPaidSheet(x) {
+  if (x.missing_rate) {
+    const [e] = (await employeeList()).filter((y) => y.employee_id === x.employee_id);
+    const ok = await formSheet({ title: 'Wage rate needed', text: `${x.display_name} has no hourly rate for some of these days, so the amount can’t be worked out. Set their rate first.`, confirm: 'Set wage rate' });
+    if (ok && e) setRateSheet(e);
+    return;
+  }
+  if (x.has_returned) return toast('Some of these hours were returned for review. They must be resubmitted before they can be paid.', 'bad');
+  const reqId = uuid();
+  const toPay = Math.max(0, Number(x.current_estimated_amount) - Number(x.amount_paid_total));
+  const methods = (S.settings.payment_methods || '').split(',').map((m) => m.trim()).filter(Boolean);
+  const v = await formSheet({ title: `Mark ${x.display_name}’s hours as paid`, confirm: 'Mark as paid',
+    notice: kv([['Dates', `${fmtYMD(x.period_start)} – ${fmtYMD(x.period_end)}`], ['Hours', `${minutesText(x.current_net_minutes)} (${hoursDec(x.current_net_minutes)} h)`],
+      ['Amount', h('strong', {}, money(toPay))], Number(x.amount_paid_total) > 0 ? ['Already paid', money(x.amount_paid_total)] : null]),
+    fields: [
+      { name: 'date', label: 'Payment date', type: 'date', value: todayYMD(), required: true },
+      { name: 'method', label: 'Method', type: 'select', options: [['', 'Not specified'], ...methods.map((m) => [m, m])] },
+      { name: 'ref', label: 'Reference (cheque #, transfer ID…)', max: 80 },
+    ] });
+  if (!v) return;
+  const r = await act(null, () => rpc('admin_mark_submission_paid', { p_submission_id: x.id, p_paid_on: v.date, p_method: v.method || null,
+    p_reference: v.ref || null, p_note: null, p_request_id: reqId }), 'Marked as paid');
+  if (r !== undefined) route();
+}
 
 // ---------------------------------------------------------------- employees
 PAGES['admin/employees'] = async () => {
@@ -6116,7 +7448,7 @@ PAGES['admin/notes'] = async () => {
   [empSel, arch].forEach((x) => x.addEventListener('change', load));
   let t; search.addEventListener('input', () => { clearTimeout(t); t = setTimeout(load, 350); });
   load();
-  return [pageHead('Employee notes', 'Read-only. Employees are told on the Notes screen that administrators can view their notes.'),
+  return [pageHead('Employee notes', 'Read-only.'),
     h('div', { class: 'filters' }, empSel, search, arch), out];
 };
 
@@ -6234,7 +7566,7 @@ PAGES['admin/settings'] = async () => {
     h('div', { class: 'grid-2' },
       section('Backups', 'Needs Google Drive connected (Data & backups)',
         field('backups_enabled', 'Automatic Google Drive backups', 'checkbox'),
-        field('backup_after_change_minutes', 'After changes, back up at most every (minutes)', 'number', { min: 5, max: 1440 }),
+        field('backup_after_change_minutes', 'Safety net: back up any missed changes within (minutes)', 'number', { min: 1, max: 1440, help: 'The app already backs up right after every change. This catches anything missed, e.g. if a phone lost its connection.' }),
         field('backup_daily_hour', 'Daily safety backup after', 'select', { options: Array.from({ length: 24 }, (_, i) => [i, `${String(i).padStart(2, '0')}:00`]) })),
       section('Records and notes', null,
         field('retention_years', 'Keep employment records for at least (years)', 'number', { min: 4, max: 50, help: 'BC requires at least 4 years. Nothing is ever deleted automatically.' }),
@@ -6547,14 +7879,14 @@ async function exportMyTimesheet(st) {
 async function exportMyJSON() {
   const me = S.me.employee_id;
   const pick = (t, col = 'employee_id') => db(S.sb.from(t).select('*').eq(col, me));
-  const [shifts, groups, reports, payments, notes, rates, corrections] = await Promise.all(
-    ['shifts', 'work_groups', 'reports', 'payments', 'notes', 'wage_rates', 'correction_requests'].map((t) => pick(t)));
+  const [shifts, groups, reports, payments, notes, rates, corrections, submissions, breaks] = await Promise.all(
+    ['shifts', 'work_groups', 'reports', 'payments', 'notes', 'wage_rates', 'correction_requests', 'hour_submissions', 'shift_breaks'].map((t) => pick(t)));
   const ids = reports.map((r) => r.id);
   const snaps = ids.length ? await db(S.sb.from('report_snapshots').select('*').in('report_id', ids)) : [];
   const sids = shifts.map((x) => x.id);
   const revs = sids.length ? await db(S.sb.from('shift_revisions').select('*').in('shift_id', sids)) : [];
   const doc = { format: 'employee-time-tracker-personal-export', exported_at: new Date().toISOString(), time_zone: tz(), currency_code: S.settings.currency_code,
-    profile: S.dash.profile, data: { shifts, shift_revisions: revs, work_groups: groups, reports, report_snapshots: snaps, payments, notes, wage_rates: rates, correction_requests: corrections } };
+    profile: S.dash.profile, data: { shifts, shift_breaks: breaks, hour_submissions: submissions, shift_revisions: revs, work_groups: groups, reports, report_snapshots: snaps, payments, notes, wage_rates: rates, correction_requests: corrections } };
   downloadFile(`my-time-records_${stamp()}.json`, JSON.stringify(doc, null, 2), 'application/json');
   rpc('log_export', { p_export_type: 'my_all_data', p_format: 'json', p_filters: {}, p_row_count: shifts.length }).catch(() => {});
 }
@@ -6581,7 +7913,7 @@ function restoreSummaryTable(res) {
 }
 
 async function restoreFlow(text, source, fileName) {
-  const sheet = openSheet({ title: 'Restore from backup', wide: true, onClose: () => route() });
+  const sheet = openSheet({ title: 'Restore from backup', wide: true, onClose: reroute });
   add(sheet.body, h('div', { class: 'center-block' }, h('div', { class: 'spinner' }), h('p', {}, 'Checking the backup…')));
   let v;
   try { v = await rpc('admin_validate_backup', { p_backup: text }); }
@@ -6655,7 +7987,7 @@ PAGES['admin/data'] = async () => {
             ['Last successful backup', last ? `${fmtDateTime(last.finished_at)}, ${(Number(last.size_bytes) / 1024).toFixed(1)} KB, verified` : 'None yet'],
             ['Last attempt', st.last_run ? `${fmtDateTime(st.last_run.started_at)}: ${st.last_run.status}${st.last_run.error ? ` — ${st.last_run.error}` : ''}` : '—'],
             ['Changes since last backup', String(st.pending_changes)],
-            ['Automatic backups', S.settings.backups_enabled ? `On: after changes (at most every ${S.settings.backup_after_change_minutes} min) and daily after ${String(S.settings.backup_daily_hour).padStart(2, '0')}:00` : 'Off (Admin settings)']])
+            ['Automatic backups', S.settings.backups_enabled ? `On: right after every change, plus a daily backup after ${String(S.settings.backup_daily_hour).padStart(2, '0')}:00` : 'Off (Admin settings)']])
       : h('div', { class: 'notice warn' }, 'Not connected. Connect the Google account whose Drive should hold the backups. Employees never need access to it.'),
     st.last_run?.status === 'failed' ? h('div', { class: 'notice bad' }, `The last backup failed: ${st.last_run.error}`) : null,
     h('div', { class: 'row gap-sm wrap-row' }, connectBtn, nowBtn, listBtn, disconnectBtn), filesBox);
@@ -6692,7 +8024,7 @@ PAGES['admin/data'] = async () => {
     h('div', { class: 'grid-2' },
       card({}, cardHead('Backup history'), runs.length ? h('div', { class: 'list' }, runs.map((b) => h('div', { class: 'rev' },
         h('div', { class: 'row' }, chip(b.status === 'succeeded' ? 'approved' : b.status === 'failed' ? 'disabled' : 'open', b.status), h('span', { class: 'spacer' }), h('span', { class: 'muted small' }, fmtDateTime(b.started_at))),
-        h('div', { class: 'small' }, `${{ manual: 'Manual', auto_change: 'After changes', scheduled: 'Daily' }[b.trigger]}${b.file_name ? `: ${b.file_name}` : ''}`),
+        h('div', { class: 'small' }, `${{ manual: 'Manual', auto_change: 'Safety net', app_change: 'After a change', scheduled: 'Daily' }[b.trigger]}${b.file_name ? `: ${b.file_name}` : ''}`),
         b.error ? h('div', { class: 'small muted' }, b.error) : null))) : empty('No backups yet.')),
       card({}, cardHead('Export and restore history'), h('div', { class: 'list' },
         restores.map((r) => h('div', { class: 'rev' }, h('strong', {}, 'Restore'), ` ${fmtDateTime(r.restored_at)} by ${names[r.restored_by] || '—'} from ${r.source === 'google_drive' ? 'Google Drive' : 'file'}`)),
@@ -6708,6 +8040,7 @@ PAGES['admin/data'] = async () => {
 const CODE = [
   ['sql-foundation', 'Database step A — secure foundation (Part 1)', 'Run once. Skip if you already ran Part 1.'],
   ['sql-part2', 'Database step B — Part 2 upgrade', 'Run once, after step A.'],
+  ['sql-update3', 'Database step C — update 3', 'Run once, after step B (lunch punches, Submit hours, Summary).'],
   ['sql-admin', 'Make yourself the first administrator', 'Edit the two values, then run once.'],
   ['fn-drive-backup', 'Backup function (drive-backup)', 'Paste into a new Supabase Edge Function named drive-backup.'],
   ['sql-schedule', 'Automatic backup schedule', 'Run after Google Drive is connected.'],
@@ -6750,8 +8083,8 @@ function setupGuide() {
       bullet(h('span', {}, 'Project URL — Project Settings → Data API (looks like ', code('https://abcd.supabase.co'), ')'),
         h('span', {}, 'Publishable key — Project Settings → API Keys (starts with ', code('sb_publishable_'), '). Never use the secret key here.'))),
     step('Build the database',
-      p('SQL Editor → New query. Copy step A below, paste, Run. Then a new query with step B, Run. Each should say “Success”.'),
-      p('Already ran Part 1? Only run step B.')),
+      p('SQL Editor → New query. Copy step A below, paste, Run. Then a new query with step B, Run, then step C, Run. Each should say “Success”. If a pop-up mentions Row Level Security, choose “Run without RLS” — the scripts turn it on themselves.'),
+      p('Already ran steps A and B? Only run step C.')),
     step('Make yourself the administrator',
       p('New query → copy “Make yourself the first administrator”, change the Gmail and name, Run.')),
     step('Turn on Google sign-in',
