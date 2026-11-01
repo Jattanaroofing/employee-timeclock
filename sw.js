@@ -5,12 +5,22 @@ self.addEventListener('install', () => self.skipWaiting());
 self.addEventListener('activate', (e) => e.waitUntil(self.clients.claim()));
 
 const APP = 'Shiftora';
-const SW_VERSION = '23';   // shown in the app (Notifications → Phone alerts), so you can tell the new file is in use
+const SW_VERSION = '24';   // shown in the app (Notifications → Phone alerts), so you can tell the new file is in use
 
 // The app asks which version of this helper is running
 self.addEventListener('message', (e) => {
   if (e.data && e.data.ask === 'version' && e.ports && e.ports[0]) e.ports[0].postMessage({ version: SW_VERSION });
 });
+// Alert style (Notifications → Phone alerts → Alert style). "no-title": iPhone's own "from Shiftora" line comes
+// first, then the alert ("Dil clocked in") and the details. iPhones use it unless "normal" was chosen.
+async function alertStyle() {
+  try {
+    const r = await (await caches.open('shiftora-settings')).match('alert-style');
+    if (r) return await r.text();
+  } catch { /* not available: use the default */ }
+  return /iPhone|iPad|iPod/.test((self.navigator && self.navigator.userAgent) || '') ? 'no-title' : 'normal';
+}
+
 // An alert arrives from the push-alerts function (already decrypted by the phone)
 self.addEventListener('push', (e) => {
   let d = {};
@@ -21,8 +31,9 @@ self.addEventListener('push', (e) => {
     wins.forEach((w) => w.postMessage({ alert: d }));           // an open app refreshes its bell at once
     try { if (self.navigator.setAppBadge && typeof d.unread === 'number') await self.navigator.setAppBadge(d.unread); } catch { /* optional */ }
     // (iPhone always adds a "from Shiftora" line to alerts from Home Screen web apps; no web app can remove it)
-    await self.registration.showNotification(title, {
-      body: d.body || '',
+    const noTitle = (await alertStyle()) === 'no-title';
+    await self.registration.showNotification(noTitle ? '' : title, {
+      body: noTitle ? [title, d.body || ''].filter(Boolean).join('\n') : (d.body || ''),
       tag: d.id || undefined, icon: 'app-icon.png', badge: 'app-icon.png',
       timestamp: Date.now(), data: { link: d.link || 'admin/notifications' },
     });
