@@ -4,6 +4,17 @@
 self.addEventListener('install', () => self.skipWaiting());
 self.addEventListener('activate', (e) => e.waitUntil(self.clients.claim()));
 
+const APP = 'Shiftora';
+// Alert style chosen in the app (Notifications → Phone alerts); iPhones use the short style unless it was turned off
+async function shortStyle() {
+  try {
+    const c = await caches.open('shiftora-settings');
+    const r = await c.match('alert-style');
+    if (r) return (await r.text()) === 'short';
+  } catch { /* not available: use the default */ }
+  return /iPhone|iPad|iPod/.test((self.navigator && self.navigator.userAgent) || '');
+}
+
 // An alert arrives from the push-alerts function (already decrypted by the phone)
 self.addEventListener('push', (e) => {
   let d = {};
@@ -13,8 +24,12 @@ self.addEventListener('push', (e) => {
     const wins = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
     wins.forEach((w) => w.postMessage({ alert: d }));           // an open app refreshes its bell at once
     try { if (self.navigator.setAppBadge && typeof d.unread === 'number') await self.navigator.setAppBadge(d.unread); } catch { /* optional */ }
-    await self.registration.showNotification(title, {
-      body: d.body || '', tag: d.id || undefined, icon: 'app-icon.png', badge: 'app-icon.png',
+    // iPhone adds a "from Shiftora" line under any title that isn't the app's own name. In the
+    // short style the app name is the title and the event goes into the text instead.
+    const compact = await shortStyle();
+    await self.registration.showNotification(compact ? APP : title, {
+      body: compact ? [title === APP ? '' : title, d.body || ''].filter(Boolean).join('\n') : (d.body || ''),
+      tag: d.id || undefined, icon: 'app-icon.png', badge: 'app-icon.png',
       timestamp: Date.now(), data: { link: d.link || 'admin/notifications' },
     });
   })());
