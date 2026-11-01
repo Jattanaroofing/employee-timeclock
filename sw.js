@@ -5,7 +5,7 @@ self.addEventListener('install', () => self.skipWaiting());
 self.addEventListener('activate', (e) => e.waitUntil(self.clients.claim()));
 
 const APP = 'Shiftora';
-const SW_VERSION = '24';   // shown in the app (Notifications → Phone alerts), so you can tell the new file is in use
+const SW_VERSION = '25';   // shown in the app (Notifications → Phone alerts), so you can tell the new file is in use
 
 // The app asks which version of this helper is running
 self.addEventListener('message', (e) => {
@@ -32,7 +32,8 @@ self.addEventListener('push', (e) => {
     try { if (self.navigator.setAppBadge && typeof d.unread === 'number') await self.navigator.setAppBadge(d.unread); } catch { /* optional */ }
     // (iPhone always adds a "from Shiftora" line to alerts from Home Screen web apps; no web app can remove it)
     const noTitle = (await alertStyle()) === 'no-title';
-    await self.registration.showNotification(noTitle ? '' : title, {
+    // An empty title makes iPhone show the app name instead, so the title is an invisible character
+    await self.registration.showNotification(noTitle ? '\u200B' : title, {
       body: noTitle ? [title, d.body || ''].filter(Boolean).join('\n') : (d.body || ''),
       tag: d.id || undefined, icon: 'app-icon.png', badge: 'app-icon.png',
       timestamp: Date.now(), data: { link: d.link || 'admin/notifications' },
