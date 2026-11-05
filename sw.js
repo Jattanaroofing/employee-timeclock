@@ -5,7 +5,7 @@ self.addEventListener('install', () => self.skipWaiting());
 self.addEventListener('activate', (e) => e.waitUntil(self.clients.claim()));
 
 const APP = 'Shiftora';
-const SW_VERSION = '25';   // shown in the app (Notifications → Phone alerts), so you can tell the new file is in use
+const SW_VERSION = '26';   // shown in the app (Notifications → Phone alerts), so you can tell the new file is in use
 
 // The app asks which version of this helper is running
 self.addEventListener('message', (e) => {
@@ -43,6 +43,18 @@ self.addEventListener('push', (e) => {
 
 // Tapping an alert opens Shiftora on the right page
 self.addEventListener('notificationclick', (e) => {
+  // The lock screen card: open Shiftora at Clock out / Start lunch / End lunch (or the shift sheet).
+  // The card stays until the shift ends (the app removes it at clock-out).
+  if (e.notification.data && e.notification.data.live) {
+    const act = e.action || 'open';
+    e.waitUntil(self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((list) => {
+      for (const c of list) {
+        if ('focus' in c) { c.postMessage({ live: act }); return c.focus(); }
+      }
+      return self.clients.openWindow(new URL('./#/home?live=' + act, self.registration.scope).href);
+    }));
+    return;
+  }
   e.notification.close();
   const link = (e.notification.data && e.notification.data.link) || 'admin/notifications';
   e.waitUntil(self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((list) => {
