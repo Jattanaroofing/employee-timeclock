@@ -288,6 +288,9 @@ input:disabled, textarea:disabled, select:disabled { opacity: .7; }
 .dial-btn.small { min-width: 0; height: 9cqw; min-height: 34px; font-size: 14px; font-size: 3.9cqw; padding: 0 5cqw;
   background: rgba(255,255,255,.12); color: #fff; font-weight: 650; }
 .dial-btn.small.lunch-on { background: rgba(232,163,23,.22); color: #FFD27A; }
+/* Update 50: the next step is the big button (Start lunch, then End lunch, then Clock out) */
+.dial-btn.lunch-start { background: #3E8FD8; color: #fff; box-shadow: 0 6px 22px rgba(62,143,216,.45); }
+.dial-btn.lunch-end { background: var(--on); color: #fff; box-shadow: 0 6px 22px rgba(30,140,90,.45); }
 .pulse { width: 9px; height: 9px; border-radius: 50%; background: #5FD39A; box-shadow: 0 0 0 0 rgba(95,211,154,.6); animation: pulse 2s infinite; flex: none; }
 @keyframes pulse { 70% { box-shadow: 0 0 0 10px rgba(95,211,154,0); } 100% { box-shadow: 0 0 0 0 rgba(95,211,154,0); } }
 .stopped-note { text-align: center; color: var(--steel); font-size: 15px; }
@@ -18825,7 +18828,7 @@ const SUPABASE_URL = String(CONFIG.supabase_url || '').trim().replace(/\/$/, '')
 const SUPABASE_KEY = String(CONFIG.supabase_publishable_key || '').trim();
 const BACKUP_FUNCTION = 'drive-backup';
 const APP_NAME = 'Shiftora';
-const APP_VERSION = 'Update 49';   // shown at the bottom of Settings and Admin settings
+const APP_VERSION = 'Update 50';   // shown at the bottom of Settings and Admin settings
 const APP_TAGLINE = 'Every Shift, Every Hour, In Control';
 
 // ---------------------------------------------------------------- state
@@ -20592,7 +20595,9 @@ function clockDial(opts = {}) {
   if (!preview) {
     if (state === 'off') actions = [btn('in', 'Clock in', startClockIn)];
     else if (state === 'pending') actions = [btn('out', 'Finish clock-out', startClockOut), btn('small', 'Keep working', cancelClockOut)];
-    else if (state === 'lunch') actions = [btn('out', 'Clock out', startClockOut), btn('small lunch-on', 'End lunch', endLunch)];
+    // the next step is the big button: Start lunch → End lunch → Clock out
+    else if (state === 'lunch') actions = [btn('lunch-end', 'End lunch', endLunch), btn('small', 'Clock out', startClockOut)];
+    else if (!lunchTaken(a)) actions = [btn('lunch-start', 'Start lunch', startLunch), btn('small', 'Clock out', startClockOut)];
     else actions = [btn('out', 'Clock out', startClockOut), btn('small', 'Start lunch', startLunch)];
   }
 
@@ -25812,6 +25817,8 @@ async function closeLiveCard() {
   try { (await reg.getNotifications({ tag: LIVE_TAG })).forEach((n) => n.close()); } catch { /* ignore */ }
 }
 // What the card says for the current shift
+// has this shift already had a lunch? (then Clock out is the next step)
+function lunchTaken(a) { return !!a && (Number(a.break_count) > 0 || Number(a.break_minutes_closed) > 0); }
 function liveContent(a) {
   const site = a.worksite_label || '';
   if (a.clock_out_pending_at) {
@@ -25827,7 +25834,8 @@ function liveContent(a) {
   return { key: `${a.shift_id}|work|${n}`, at: n ? new Date().toISOString() : a.clock_in_at,
     title: n ? `Back on the clock · in since ${fmtTime(a.clock_in_at)}` : `On the clock · since ${fmtTime(a.clock_in_at)}`,
     body: [site, 'Tap to clock out or start lunch'].filter(Boolean).join('\n'),
-    actions: [{ action: 'clock_out', title: 'Clock out' }, { action: 'start_lunch', title: 'Start lunch' }] };
+    actions: lunchTaken(a) ? [{ action: 'clock_out', title: 'Clock out' }, { action: 'start_lunch', title: 'Start lunch' }]
+      : [{ action: 'start_lunch', title: 'Start lunch' }, { action: 'clock_out', title: 'Clock out' }] };
 }
 // Keep the card in step with the shift (called after every dashboard refresh)
 async function syncLiveCard(force = false) {
@@ -25870,7 +25878,8 @@ function liveSheet() {
       : `On the clock since ${fmtTime(a.clock_in_at)} · ${a.worksite_label}`),
     a.clock_out_pending_at ? pick('Finish clock-out', 'btn-out', startClockOut)
       : a.lunch_started_at ? [pick('End lunch', 'btn-primary', endLunch), pick('Clock out', 'btn-out', startClockOut)]
-      : [pick('Clock out', 'btn-out', startClockOut), pick('Start lunch', 'btn-primary', startLunch)]));
+      : lunchTaken(a) ? [pick('Clock out', 'btn-out', startClockOut), pick('Start lunch', 'btn-ghost', startLunch)]
+        : [pick('Start lunch', 'btn-primary', startLunch), pick('Clock out', 'btn-ghost', startClockOut)]));
 }
 function takeLiveFromHash() {
   const m = location.hash.match(/[?&]live=([a-z_]+)/);
